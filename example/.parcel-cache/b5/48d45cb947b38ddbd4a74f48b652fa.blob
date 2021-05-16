@@ -1,0 +1,15 @@
+"use strict";
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+var react = require('@stitches/react');
+var Button = /*#__PURE__*/react.styled('button', {
+  backgroundColor: 'plum',
+  borderRadius: '8px',
+  fontSize: '13px',
+  padding: ' 10px 15px',
+  '&:hover': {
+    backgroundColor: 'hotpink'
+  }
+});
+exports.Button = Button;
