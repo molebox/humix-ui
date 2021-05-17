@@ -25694,10 +25694,13 @@ var react = require('@stitches/react');
 var Button = /*#__PURE__*/react.styled('button', {
   backgroundColor: 'plum',
   borderRadius: '8px',
-  fontSize: '13px',
+  borderColor: 'plum',
+  fontSize: '16px',
   padding: ' 10px 15px',
+  outline: 'none',
   '&:hover': {
-    backgroundColor: 'hotpink'
+    backgroundColor: 'hotpink',
+    cursor: 'pointer'
   }
 });
 exports.Button = Button;

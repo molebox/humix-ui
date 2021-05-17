@@ -1,7 +1,8 @@
+import * as React from 'react'
 import { styled } from '@stitches/react';
 
-export const Button = styled('button', {
-    backgroundColor: 'plum',
+const ButtonContainer = styled('button', {
+    backgroundColor: 'blue',
     borderRadius: '8px',
     borderColor: 'plum',
     fontSize: '13px',
@@ -12,3 +13,11 @@ export const Button = styled('button', {
         cursor: 'pointer'
     }
 })
+
+export const Button: React.FunctionComponent = ({ children }) => {
+    return (
+        <ButtonContainer>
+            {children}
+        </ButtonContainer>
+    )
+}
