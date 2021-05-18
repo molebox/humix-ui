@@ -2,7 +2,7 @@ import * as React from 'react'
 import { styled } from '@stitches/react';
 
 const ButtonContainer = styled('button', {
-    backgroundColor: 'blue',
+    backgroundColor: 'plum',
     borderRadius: '8px',
     borderColor: 'plum',
     fontSize: '13px',

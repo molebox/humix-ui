@@ -1,0 +1,38 @@
+"use strict";
+var helpers = require("../example/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  Object.defineProperty(exports, '__esModule', {
+    value: true
+  });
+  var React = require('react');
+  var react = require('@stitches/react');
+  var ButtonContainer = /*#__PURE__*/react.styled('button', {
+    backgroundColor: 'blue',
+    borderRadius: '8px',
+    borderColor: 'plum',
+    fontSize: '13px',
+    padding: ' 10px 15px',
+    outline: 'none',
+    '&:hover': {
+      backgroundColor: 'hotpink',
+      cursor: 'pointer'
+    }
+  });
+  _c = ButtonContainer;
+  var Button = function Button(_ref) {
+    var children = _ref.children;
+    return React.createElement(ButtonContainer, null, children);
+  };
+  _c2 = Button;
+  exports.Button = Button;
+  var _c, _c2;
+  $RefreshReg$(_c, "ButtonContainer");
+  $RefreshReg$(_c2, "Button");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
