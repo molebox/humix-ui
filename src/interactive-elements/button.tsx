@@ -11,12 +11,37 @@ const ButtonContainer = styled('button', {
     '&:hover': {
         backgroundColor: 'hotpink',
         cursor: 'pointer'
+    },
+    variants: {
+        color: {
+            violet: {
+                backgroundColor: 'blueviolet',
+                color: 'whitesmoke',
+                '&:hover': {
+                    backgroundColor: 'darkviolet'
+                }
+            },
+            purple: {
+                backgroundColor: 'rebeccapurple',
+                color: 'wheat',
+                '&:hover': {
+                    backgroundColor: 'royalblue'
+                }
+            }
+
+        }
     }
 })
 
-export const Button: React.FunctionComponent = ({ children }) => {
+type Color = 'violet' | 'purple';
+
+interface ButtonProps {
+    color: Color
+}
+
+export const Button: React.FunctionComponent<ButtonProps> = ({ children, color }) => {
     return (
-        <ButtonContainer>
+        <ButtonContainer {...color}>
             {children}
         </ButtonContainer>
     )

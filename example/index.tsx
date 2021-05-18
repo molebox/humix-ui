@@ -5,7 +5,7 @@ import { Button } from '../.';
 const App = () => {
   return (
     <div>
-      <Button>Press me</Button>
+      <Button color="purple">Press me</Button>
     </div>
   );
 };
