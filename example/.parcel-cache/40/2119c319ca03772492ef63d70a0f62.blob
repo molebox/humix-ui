@@ -1,6 +1,0 @@
-"use strict";
-if ("development" === 'production') {
-  module.exports = require('./humix-ui.cjs.production.min.js');
-} else {
-  module.exports = require('./humix-ui.cjs.development.js');
-}

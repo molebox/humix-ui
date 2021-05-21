@@ -1,26 +1,19 @@
 {
   "version": "0.1.1",
   "license": "MIT",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "main": "build/index.js",
+  "module": "build/index.es.js",
   "files": [
-    "dist",
-    "src"
+    "build"
   ],
   "engines": {
     "node": ">=10"
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
-    "size": "size-limit",
-    "analyze": "size-limit --why"
-  },
-  "peerDependencies": {
-    "react": ">=16"
+    "build": "rollup -c",
+    "pretty": "prettier --write \"src/**/*.{ts,tsx}\"",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "husky": {
     "hooks": {
@@ -34,31 +27,33 @@
     "trailingComma": "es5"
   },
   "name": "humix-ui",
-  "author": "hello@richardhaines.dev",
-  "module": "dist/humix-ui.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/humix-ui.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/humix-ui.esm.js",
-      "limit": "10 KB"
-    }
-  ],
+  "author": "Rich Haines",
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^4.10.2",
+    "@babel/core": "^7.14.3",
+    "@rollup/plugin-commonjs": "^19.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-essentials": "^6.2.9",
+    "@storybook/addon-links": "^6.2.9",
+    "@storybook/react": "^6.2.9",
     "@types/react": "^17.0.5",
     "@types/react-dom": "^17.0.5",
+    "babel-loader": "^8.2.2",
     "husky": "^6.0.0",
+    "prettier": "^2.3.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "size-limit": "^4.10.2",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.2.0",
+    "rollup": "^2.48.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-typescript2": "^0.30.0",
     "typescript": "^4.2.4"
   },
   "dependencies": {
+    "@react-aria/button": "^3.3.2",
     "@stitches/react": "^0.1.9"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.2",
+    "react-dom": ">=17.0.2"
   }
 }

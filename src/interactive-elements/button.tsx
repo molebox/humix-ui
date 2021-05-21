@@ -1,47 +1,52 @@
 import * as React from 'react'
 import { styled } from '@stitches/react';
+import { useButton } from '@react-aria/button';
 
 const ButtonContainer = styled('button', {
-    backgroundColor: 'plum',
     borderRadius: '8px',
-    borderColor: 'plum',
     fontSize: '13px',
     padding: ' 10px 15px',
     outline: 'none',
     '&:hover': {
-        backgroundColor: 'hotpink',
         cursor: 'pointer'
     },
     variants: {
         color: {
-            violet: {
-                backgroundColor: 'blueviolet',
-                color: 'whitesmoke',
+            turquoise: {
+                backgroundColor: '#4AF1D6',
+                color: '#2F2F2F',
                 '&:hover': {
-                    backgroundColor: 'darkviolet'
+                    backgroundColor: '#8DF6E5'
                 }
             },
-            purple: {
-                backgroundColor: 'rebeccapurple',
-                color: 'wheat',
+            red: {
+                backgroundColor: '#F7191C',
+                color: '#F7F3F5',
                 '&:hover': {
-                    backgroundColor: 'royalblue'
+                    backgroundColor: '#D9080B'
                 }
             }
 
         }
+    },
+    defaultVariants: {
+        color: 'turquoise'
     }
 })
 
-type Color = 'violet' | 'purple';
+type Color = 'turquoise' | 'red';
 
-interface ButtonProps {
+export interface ButtonProps {
     color: Color
 }
 
-export const Button: React.FunctionComponent<ButtonProps> = ({ children, color }) => {
+export const Button: React.FunctionComponent<ButtonProps> = (props) => {
+    const ref = React.useRef<HTMLButtonElement>(null);
+    const { buttonProps } = useButton(props, ref);
+    const { children } = props;
+
     return (
-        <ButtonContainer {...color}>
+        <ButtonContainer {...buttonProps} ref={ref}>
             {children}
         </ButtonContainer>
     )
