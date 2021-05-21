@@ -9,3 +9,4 @@ export default
     } as Meta
 
 export const TurquoiseButton: React.FunctionComponent<ButtonProps> = () => <Button color="turquoise">Im turquoise</Button>
+export const RedButton: React.FunctionComponent<ButtonProps> = () => <Button color="red">Im red</Button>
