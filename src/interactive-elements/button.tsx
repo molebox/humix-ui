@@ -1,18 +1,18 @@
 import * as React from 'react'
-import { styled } from '@stitches/react';
+import { styled, StitchesVariants } from '@stitches/react';
 import { useButton } from '@react-aria/button';
 
-// https://www.joshwcomeau.com/animation/3d-button/
-
-const ButtonContainer = styled('button', {
+const ButtonBase = styled('button', {
     borderRadius: '8px',
     fontSize: '13px',
     padding: ' 10px 15px',
     outline: 'none',
-    boxShadow: "-2px 2px 1px 0px rgba(0,0,0,1)",
+    border: 'solid 2px #2F2F2F',
+    boxShadow: "-2px 3px 1px 0px rgba(0,0,0,1)",
+    transition: 'all 250ms ease',
     '&:active': {
-        boxShadow: "none",
-        transition: 'all 0.2s'
+        transform: 'translateY(3px)',
+        boxShadow: "0px 1px 0px 0px rgba(0,0,0,1)"
     },
     '&:hover': {
         cursor: 'pointer',
@@ -20,12 +20,11 @@ const ButtonContainer = styled('button', {
     variants: {
         color: {
             turquoise: {
-                border: 'solid 2px #2F2F2F',
                 backgroundColor: '#4AF1D6',
                 color: '#2F2F2F',
                 '&:hover': {
                     backgroundColor: '#8DF6E5'
-                }
+                },
             },
             red: {
                 backgroundColor: '#F61317',
@@ -37,25 +36,21 @@ const ButtonContainer = styled('button', {
 
         }
     },
-    // defaultVariants: {
-    //     color: 'turquoise'
-    // }
+    defaultVariants: {
+        color: 'turquoise'
+    }
 })
 
-type Color = 'turquoise' | 'red';
+type ButtonProps = StitchesVariants<typeof ButtonBase>
 
-export interface ButtonProps {
-    color?: Color
-}
-
-export const Button: React.FunctionComponent<ButtonProps> = (props) => {
+export const Button: React.FC<ButtonProps> = (props) => {
     const ref = React.useRef<HTMLButtonElement>(null);
     const { buttonProps } = useButton(props, ref);
     const { children } = props;
 
     return (
-        <ButtonContainer {...buttonProps} ref={ref}>
+        <ButtonBase {...buttonProps} ref={ref} {...props}>
             {children}
-        </ButtonContainer>
+        </ButtonBase>
     )
 }
