@@ -1,1 +1,3 @@
-export * from './interactive-elements/button';
+import { Button } from './interactive-elements/button';
+
+export { Button };
