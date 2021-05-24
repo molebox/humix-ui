@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "esnext",
     "outDir": "lib",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
+    "sourceMap": true,
     "declaration": true,
     "declarationDir": "lib",
     "allowJs": true,
@@ -20,12 +21,17 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react"
+    "jsx": "react",
+    "declarationMap": true
   },
   "include": [
-    "src/**/*",
+    "src/**/*"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "lib",
+    ".storybook",
+    "rollup.config.js",
+    "**/*.stories.tsx"
   ]
 }

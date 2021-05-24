@@ -1,6 +1,7 @@
 import { createCss } from '@stitches/react';
 
 export const { styled, getCssString, css } = createCss({
+    prefix: 'humix-',
     theme: {
         fonts: {
             system: 'system-ui',
