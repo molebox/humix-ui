@@ -1,18 +1,18 @@
 import { createCss } from '@stitches/react';
 
-export const { styled, getCssString, css } = createCss({
+export const { styled, getCssString, css, theme } = createCss({
     prefix: 'humix-',
     theme: {
         fonts: {
             system: 'system-ui',
         },
         colors: {
-            turquoise100: 'hsl(170, 86%, 62%)',
-            turquoise200: 'hsl(170, 86%, 80%)',
-            red100: 'hsl(359, 93%, 52%)',
-            red200: 'hsl(359, 93%, 60%)',
-            darkGrey: '#2F2F2F',
-            offWhite: '#F7F3F5'
+            primary100: 'hsl(170, 86%, 62%)',
+            primary200: 'hsl(170, 86%, 80%)',
+            secondary100: 'hsl(359, 93%, 52%)',
+            secondary200: 'hsl(359, 93%, 60%)',
+            darkText: '#2F2F2F',
+            lightText: '#F7F3F5'
         },
         space: {
             1: '0px',
@@ -75,3 +75,14 @@ export const { styled, getCssString, css } = createCss({
         lg: '(min-width: 1024px)',
     },
 });
+
+export const pastelTheme = theme({
+    colors: {
+        primary100: 'hsl(110, 100%, 87%)',
+        primary200: 'hsl(110, 100%, 80%)',
+        secondary100: 'hsl(62, 100%, 86%)',
+        secondary200: 'hsl(62, 100%, 76%)',
+        darkText: '#001F52',
+        lightText: '#FFFFFC'
+    }
+})

@@ -8,7 +8,7 @@ const RootBoogie = styled('button', {
   minWidth: '$interactiveElementMinWidth',
   fontSize: '$3',
   padding: '$4 $5',
-  border: 'solid 2px $darkGrey',
+  border: 'solid 2px $darkText',
   boxShadow: '-2px 3px 1px 0px rgba(0,0,0,1)',
   transition: 'all 250ms ease',
   cursor: 'pointer',
@@ -21,26 +21,26 @@ const RootBoogie = styled('button', {
 const ButtonVariants = styled(RootBoogie, {
   variants: {
     color: {
-      turquoise: {
-        backgroundColor: '$turquoise100',
-        color: '$darkGrey',
+      primary: {
+        backgroundColor: '$primary100',
+        color: '$darkText',
         '&:hover': {
-          backgroundColor: '$turquoise200',
+          backgroundColor: '$primary200',
         },
         '&:focus': {
           outline: 'none',
-          boxShadow: '0 0 8px turquoise',
+          boxShadow: '0 0 8px primary',
         },
       },
-      red: {
-        backgroundColor: '$red100',
-        color: '$offWhite',
+      secondary: {
+        backgroundColor: '$secondary100',
+        color: '$lightText',
         '&:hover': {
-          backgroundColor: '$red200',
+          backgroundColor: '$secondary200',
         },
         '&:focus': {
           outline: 'none',
-          boxShadow: '0 0 8px red',
+          boxShadow: '0 0 8px secondary',
         },
       },
     },
@@ -57,7 +57,7 @@ const ButtonVariants = styled(RootBoogie, {
     },
   },
   defaultVariants: {
-    color: 'turquoise',
+    color: 'primary',
     cornerRadius: 'slight'
   }
 });
@@ -69,7 +69,7 @@ export type ButtonProps = Pick<React.ButtonHTMLAttributes<HTMLButtonElement>, "c
  * A simple, accesible button component.
  *
  * Default values in bold.
- * @param color - **turquoise** | red
+ * @param color - **primary** | secondary
  * @param cornerRadius - square | **slight** | rounded
  */
 export const Button = (props: ButtonProps) => {
