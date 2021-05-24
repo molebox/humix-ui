@@ -1,10 +1,13 @@
 {
-  "version": "0.1.13",
+  "version": "0.1.14",
   "license": "MIT",
-  "main": "lib/index",
+  "main": "lib/index.js",
   "module": "lib/index.esm.js",
   "types": "lib/src/index.d.ts",
   "typings": "lib/src/index.d.ts",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "build": "rollup -c",
     "pretty": "prettier --write \"src/**/*.{ts,tsx}\"",
