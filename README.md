@@ -51,11 +51,13 @@ To consume your new theme just add it as a className to any parent element whose
 ```tsx
 import { myTheme } from 'path/to/my/theme'
 
-<div className={myTheme}>
-  <section>
-    <Button color="primary" cornerRadius="rounded" >Im a button!</Button>
-  </section>
-</div>
+const RootBoogie = () => (
+  <div className={myTheme}>
+    <section>
+      <Button color="primary" cornerRadius="rounded" >Im a button!</Button>
+    </section>
+  </div>
+)
 ```
 
 Humix also ships with a few different themes which you can import and apply the same way as stated above.
@@ -63,11 +65,13 @@ Humix also ships with a few different themes which you can import and apply the 
 ```tsx
 import { pastelTheme } from 'humix-ui'
 
-<div className={pastelTheme}>
-  <section>
-    <Button color="primary" cornerRadius="rounded" >Im a button!</Button>
-  </section>
-</div>
+const RootBoogie = () => (
+  <div className={pastelTheme}>
+    <section>
+      <Button color="primary" cornerRadius="rounded" onClick={handleTheClicking}>Im a button!</Button>
+    </section>
+  </div>
+)
 ```
 
 Current theme list:
@@ -94,6 +98,6 @@ The button asks that you make a choice as to how you want it to render. It's tot
 ```tsx
 import { Button } from 'humix-ui'
 
-<Button color="primary" cornerRadius="rounded" >Im red!</Button>
+<Button color="primary" cornerRadius="rounded" onClick={handleTheClicking}>Im red!</Button>
 ```
 
