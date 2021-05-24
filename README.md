@@ -14,6 +14,8 @@ It's pronounced hue-mix. It's a mix of my three kids names, Hollie, Uma and Phoe
 
 Why not? Learn by doing. Ive never made a component library before.
 
+Storybook: [humix-ui.netlify.app](https://humix-ui.netlify.app/)
+
 Current components:
 - Button
 
