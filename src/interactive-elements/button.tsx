@@ -16,7 +16,7 @@ const RootBoogie = styled('button', {
     transform: 'translateY(3px)',
     boxShadow: '0px 1px 0px 0px rgba(0,0,0,1)',
   },
-})
+});
 
 const ButtonVariants = styled(RootBoogie, {
   variants: {
@@ -29,7 +29,7 @@ const ButtonVariants = styled(RootBoogie, {
         },
         '&:focus': {
           outline: 'none',
-          boxShadow: '$primaryFocus'
+          boxShadow: '$primaryFocus',
         },
       },
       secondary: {
@@ -40,19 +40,19 @@ const ButtonVariants = styled(RootBoogie, {
         },
         '&:focus': {
           outline: 'none',
-          boxShadow: '$secondaryFocus'
+          boxShadow: '$secondaryFocus',
         },
       },
     },
     cornerRadius: {
       square: {
-        borderRadius: '$none'
+        borderRadius: '$none',
       },
       slight: {
-        borderRadius: '$slight'
+        borderRadius: '$slight',
       },
       rounded: {
-        borderRadius: '$rounded'
+        borderRadius: '$rounded',
       },
     },
   },

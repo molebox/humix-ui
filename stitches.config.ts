@@ -1,6 +1,6 @@
-import { createCss } from '@stitches/react';
+import { createCss, StitchesCss } from '@stitches/react';
 
-export const { styled, getCssString, css, theme } = createCss({
+export const defaultTheme = createCss({
     prefix: 'humix-',
     theme: {
         fonts: {
@@ -69,6 +69,14 @@ export const { styled, getCssString, css, theme } = createCss({
         shadows: {
             primaryFocus: '0px 1px 0px 0px rgba(0,0,0,1), 0px 0px 8px hsl(170, 86%, 62%)',
             secondaryFocus: '0px 1px 0px 0px rgba(0,0,0,1), 0px 0px 8px hsl(359, 93%, 52%)',
+            primaryBoxBottomRight: '10px 10px 1px 1px hsl(170, 86%, 62%)',
+            secondaryBoxBottomRight: '10px 10px 1px 1px hsl(359, 93%, 52%)',
+            primaryBoxBottomLeft: '-10px 10px 1px 1px hsl(170, 86%, 62%)',
+            secondaryBoxBottomLeft: '-10px 10px 1px 1px hsl(359, 93%, 52%)',
+            primaryBoxTopRight: '10px -10px 1px 1px hsl(170, 86%, 62%)',
+            secondaryBoxTopRight: '10px -10px 1px 1px hsl(359, 93%, 52%)',
+            primaryBoxTopLeft: '-10px -10px 1px 1px hsl(170, 86%, 62%)',
+            secondaryBoxTopLeft: '-10px -10px 1px 1px hsl(359, 93%, 52%)',
         },
         zIndices: {},
         transitions: {},
@@ -79,6 +87,10 @@ export const { styled, getCssString, css, theme } = createCss({
         lg: '(min-width: 1024px)',
     },
 });
+
+export const { styled, getCssString, css, theme } = defaultTheme;
+
+export type CSS = StitchesCss<typeof defaultTheme>;
 
 export const pastelTheme = theme({
     colors: {

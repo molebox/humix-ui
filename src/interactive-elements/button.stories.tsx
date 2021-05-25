@@ -13,7 +13,13 @@ export default {
 // export const Turquoise = Template.bind({})
 
 // Turquoise.args = { color: 'turquoise', children: 'Im a button' }
-export const RedButton: React.FC<ButtonProps> = () => <Button color="secondary" cornerRadius="square">Im red</Button>;
+export const RedButton: React.FC<ButtonProps> = () => (
+  <Button color="secondary" cornerRadius="square">
+    Im red
+  </Button>
+);
 export const TurquoiseButton = () => (
-  <Button color="primary" cornerRadius="rounded">Im turquoise</Button>
+  <Button type="submit" color="primary" cornerRadius="rounded">
+    Im turquoise
+  </Button>
 );
