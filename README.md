@@ -25,7 +25,8 @@ Storybook: [humix-ui.netlify.app](https://humix-ui.netlify.app/)
 ## Components
 
 Current components:
-- Button
+- [Button](#button)
+- [Box](#box)
 
 All components are created and styled using [stitches](https://stitches.dev/). The default theme object can be overriden by importing the `createTheme` function and replacing the theme tokens. Intellisense is included by default because stitches is dope.
 
@@ -98,6 +99,75 @@ The button asks that you make a choice as to how you want it to render. It's tot
 ```tsx
 import { Button } from 'humix-ui'
 
-<Button color="primary" cornerRadius="rounded" onClick={handleTheClicking}>Im red!</Button>
+const RootBoogie = () => (
+    <section>
+      <Button color="primary" cornerRadius="rounded" onClick={handleTheClicking}>Im a button!</Button>
+    </section>
+)
 ```
 
+### Box
+
+A polymorphic box that can be styled in multiple ways. The box has an `as` props which allows it to be rendered as any HTML element.
+
+#### Usage
+
+It's main usage is as a container. It ships with a number of boolean props which add border and / or box shadows of `primary` or `secondary` colors according to the theme config.
+
+The box also takes a `stylz` props which can be used to style the box using object syntax css.
+
+**Props**
+ - stylz - Style the container by adding object syntax css. Accepts theme tokens as $myThemeToken
+ - border - Attaches a 2px border
+ - primaryBottomRight - A box shadow using the primary color on the bottom right
+ - primaryBottomLeft - A box shadow using the primary color on the bottom left
+ - primaryTopRight - A box shadow using the primary color on the top right
+ - primaryTopLeft - A box shadow using the primary color on the top left
+ - secondaryTopLeft - A box shadow using the secondary color on the top left
+ - secondaryTopRight - A box shadow using the secondary color on the top right
+ - secondaryBottomLeft - A box shadow using the secondary color on the bottom left
+ - secondaryBottomRight - A box shadow using the secondary color on the bottom right
+
+The following example is a pure container with no visual styling.
+
+ ```tsx
+import { Box } from 'humix-ui';
+
+const RootBoogie = () => (
+    <Box
+      as="section"
+      stylz={{
+        width: '300px',
+        height: '300px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      <Button color="primary" cornerRadius="rounded" onClick={handleTheClicking}>Im a button!</Button>
+    </Box>
+)
+ ```
+
+The following container has some funky arse box shadow styling with a 2px border. The primary color are set via the theme config.
+
+  ```tsx
+import { Box } from 'humix-ui';
+
+const RootBoogie = () => (
+    <Box
+      as="aside"
+      primaryBottomRight
+      border
+      stylz={{
+        width: '300px',
+        height: '300px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      <Button color="primary" cornerRadius="rounded" onClick={handleTheClicking}>Im a button!</Button>
+    </Box>
+)
+ ```

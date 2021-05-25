@@ -6,64 +6,64 @@ import type * as Polymorphic from '@radix-ui/react-polymorphic';
 const DEFAULT_ELEMENT = 'div';
 
 const RootBoogie = styled(DEFAULT_ELEMENT, {
-    variants: {
-        primaryBottomRight: {
-            true: {
-                boxShadow: '$primaryBoxBottomRight',
-            },
-        },
-        secondaryBottomRight: {
-            true: {
-                boxShadow: '$secondaryBoxBottomRight',
-            },
-        },
-        primaryBottomLeft: {
-            true: {
-                boxShadow: '$primaryBoxBottomLeft',
-            },
-        },
-        secondaryBottomLeft: {
-            true: {
-                boxShadow: '$secondaryBoxBottomLeft',
-            },
-        },
-        primaryTopRight: {
-            true: {
-                boxShadow: '$primaryBoxTopRight',
-            },
-        },
-        secondaryTopRight: {
-            true: {
-                boxShadow: '$secondaryBoxTopRight',
-            },
-        },
-        primaryTopLeft: {
-            true: {
-                boxShadow: '$primaryBoxTopLeft',
-            },
-        },
-        secondaryTopLeft: {
-            true: {
-                boxShadow: '$secondaryBoxTopLeft',
-            },
-        },
-        border: {
-            true: {
-                border: 'solid 2px $darkText',
-            }
-        }
+  variants: {
+    primaryBottomRight: {
+      true: {
+        boxShadow: '$primaryBoxBottomRight',
+      },
     },
+    secondaryBottomRight: {
+      true: {
+        boxShadow: '$secondaryBoxBottomRight',
+      },
+    },
+    primaryBottomLeft: {
+      true: {
+        boxShadow: '$primaryBoxBottomLeft',
+      },
+    },
+    secondaryBottomLeft: {
+      true: {
+        boxShadow: '$secondaryBoxBottomLeft',
+      },
+    },
+    primaryTopRight: {
+      true: {
+        boxShadow: '$primaryBoxTopRight',
+      },
+    },
+    secondaryTopRight: {
+      true: {
+        boxShadow: '$secondaryBoxTopRight',
+      },
+    },
+    primaryTopLeft: {
+      true: {
+        boxShadow: '$primaryBoxTopLeft',
+      },
+    },
+    secondaryTopLeft: {
+      true: {
+        boxShadow: '$secondaryBoxTopLeft',
+      },
+    },
+    border: {
+      true: {
+        border: 'solid 2px $darkText',
+      },
+    },
+  },
 });
 
 type OwnProps = {
-    stylz?: CSS;
+  stylz?: CSS;
 };
 
 type BoxProps = Required<OwnProps> & StitchesVariants<typeof RootBoogie>;
 
 type BoxComponent = Polymorphic.ForwardRefComponent<
-    typeof DEFAULT_ELEMENT,
-    BoxProps
+  typeof DEFAULT_ELEMENT,
+  BoxProps
 >;
 
 /**
@@ -80,6 +80,6 @@ type BoxComponent = Polymorphic.ForwardRefComponent<
  * @param secondaryBottomRight - A box shadow using the secondary color on the bottom right
  */
 export const Box = React.forwardRef((props, forwardRef) => {
-    const { stylz } = props;
-    return <RootBoogie css={{ ...stylz }} {...props} ref={forwardRef} />;
+  const { stylz } = props;
+  return <RootBoogie css={{ ...stylz }} {...props} ref={forwardRef} />;
 }) as BoxComponent;
