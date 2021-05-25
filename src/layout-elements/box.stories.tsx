@@ -10,8 +10,8 @@ export default {
 
 export const PrimaryBoxAsSection = () => (
   <Box
-    as="section"
-    primaryTopRight
+    as="aside"
+    primaryBottomRight
     border
     stylz={{
       width: '300px',

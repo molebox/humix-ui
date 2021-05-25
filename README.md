@@ -87,6 +87,8 @@ A super duper simple, accessible button component.
 
 The button asks that you make a choice as to how you want it to render. It's totally explicit and will shout at you if you dont supply it the props it wants.
 
+Have a look [in real life](https://humix-ui.netlify.app/?path=/docs/interactive-elements-button--primary-button)
+
 **Props**
 - color
   - primary
@@ -150,6 +152,8 @@ const RootBoogie = () => (
  ```
 
 The following container has some funky arse box shadow styling with a 2px border. The primary color are set via the theme config.
+
+Have a look [in real life](https://humix-ui.netlify.app/?path=/docs/layout-elements-box--primary-box-as-section)
 
   ```tsx
 import { Box } from 'humix-ui';

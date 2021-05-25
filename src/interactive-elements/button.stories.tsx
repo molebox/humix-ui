@@ -8,18 +8,13 @@ export default {
   component: Button,
 } as Meta;
 
-// const Template: Story<ButtonProps> = (args) => <Button {...args} />
-
-// export const Turquoise = Template.bind({})
-
-// Turquoise.args = { color: 'turquoise', children: 'Im a button' }
-export const RedButton: React.FC<ButtonProps> = () => (
-  <Button color="secondary" cornerRadius="square">
-    Im red
+export const PrimaryButton = () => (
+  <Button color="primary" cornerRadius="rounded">
+    Im a button!
   </Button>
 );
-export const TurquoiseButton = () => (
-  <Button type="submit" color="primary" cornerRadius="rounded">
-    Im turquoise
+export const SecondaryButton: React.FC<ButtonProps> = () => (
+  <Button color="secondary" cornerRadius="square">
+    Im a button!
   </Button>
 );
