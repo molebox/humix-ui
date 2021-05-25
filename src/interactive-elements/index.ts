@@ -1,1 +1,2 @@
-export { Button } from './button';
+export { Button } from './button/button';
+export { Link } from './link/link';

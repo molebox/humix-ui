@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StitchesVariants } from '@stitches/react';
-import { styled } from '../../stitches.config';
+import { styled } from '../../../stitches.config';
 import { useButton } from '@react-aria/button';
 
 const RootBoogie = styled('button', {
@@ -34,7 +34,7 @@ const ButtonVariants = styled(RootBoogie, {
       },
       secondary: {
         backgroundColor: '$secondary100',
-        color: '$lightText',
+        color: '$darkText',
         '&:hover': {
           backgroundColor: '$secondary200',
         },

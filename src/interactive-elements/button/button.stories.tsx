@@ -1,7 +1,6 @@
 import React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
-import { Story } from '@storybook/react';
-import { Button, ButtonProps } from './button';
+import { Button } from './button';
 
 export default {
   title: 'interactive-elements/button',
@@ -13,7 +12,7 @@ export const PrimaryButton = () => (
     Im a button!
   </Button>
 );
-export const SecondaryButton: React.FC<ButtonProps> = () => (
+export const SecondaryButton = () => (
   <Button color="secondary" cornerRadius="square">
     Im a button!
   </Button>

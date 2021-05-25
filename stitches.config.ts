@@ -9,7 +9,7 @@ export const defaultTheme = createCss({
         colors: {
             primary100: 'hsl(170, 86%, 62%)',
             primary200: 'hsl(170, 86%, 80%)',
-            secondary100: 'hsl(359, 93%, 52%)',
+            secondary100: 'hsl(359, 93%, 70%)',
             secondary200: 'hsl(359, 93%, 60%)',
             focusOutline: 'hsl(300, 47%, 75%)',
             darkText: '#2F2F2F',

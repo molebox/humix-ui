@@ -12,7 +12,7 @@ It's pronounced hue-mix. It's a mix of my three kids names, Hollie, Uma and Phoe
 
 ## Why?
 
-Why not? Learn by doing. Ive never made a component library before.
+Why not? Learn by doing. Ive never made a component library before. This library is built on top of [stitches](https://stitches.dev/). Anything you may find awesome is their work, this is just a nice abstraction with props that i like and easy config.
 
 ## Where?
 
@@ -27,6 +27,7 @@ Storybook: [humix-ui.netlify.app](https://humix-ui.netlify.app/)
 Current components:
 - [Button](#button)
 - [Box](#box)
+- [Link](#link)
 
 All components are created and styled using [stitches](https://stitches.dev/). The default theme object can be overriden by importing the `createTheme` function and replacing the theme tokens. Intellisense is included by default because stitches is dope.
 
@@ -196,3 +197,46 @@ const RootBoogie = () => (
     </Box>
 )
  ```
+
+ ### Link
+
+ A link component that can be used for external linkage, but also accepts a polymorphic `as` prop so that you can use it with other cool links such as `GatsbyLink` or `NextLink`. It's accessible by default and has minimal styling.
+
+ #### Usage
+
+The link accepts two styling props, `primary` and `secondary`. These style the hover and active states and match them to the colors determined in the theme config.
+
+TODO: add `stylz` prop for easy custom config.
+
+**Props**
+- primary
+- secondary
+
+The below example shows an external link.
+
+```tsx
+import { Link } from 'humix-ui'
+
+const RootBoogie = () => (
+    <section>
+      <Link primary href="https://richardhaines.dev">
+          Im a link, hover me!
+      </Link>
+    </section>
+)
+```
+
+The below example shows using the `as` prop in combination with `GatsbyLink`.
+
+```tsx
+import { Link } from 'humix-ui'
+import { Link as GatsbyLink } from 'gatsby'
+
+const RootBoogie = () => (
+    <section>
+      <Link primary as={GatsbyLink} to="/">
+          Im a link, hover me!
+      </Link>
+    </section>
+)
+```
