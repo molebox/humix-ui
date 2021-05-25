@@ -15,5 +15,5 @@ export default {
 // Turquoise.args = { color: 'turquoise', children: 'Im a button' }
 export const RedButton: React.FC<ButtonProps> = () => <Button color="secondary" cornerRadius="square">Im red</Button>;
 export const TurquoiseButton = () => (
-  <Button color="primary" cornerRadius="rounded" >Im turquoise</Button>
+  <Button color="primary" cornerRadius="rounded">Im turquoise</Button>
 );

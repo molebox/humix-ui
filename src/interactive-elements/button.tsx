@@ -29,7 +29,7 @@ const ButtonVariants = styled(RootBoogie, {
         },
         '&:focus': {
           outline: 'none',
-          boxShadow: '0 0 8px primary',
+          boxShadow: '$primaryFocus'
         },
       },
       secondary: {
@@ -40,7 +40,7 @@ const ButtonVariants = styled(RootBoogie, {
         },
         '&:focus': {
           outline: 'none',
-          boxShadow: '0 0 8px secondary',
+          boxShadow: '$secondaryFocus'
         },
       },
     },
@@ -56,25 +56,20 @@ const ButtonVariants = styled(RootBoogie, {
       },
     },
   },
-  defaultVariants: {
-    color: 'primary',
-    cornerRadius: 'slight'
-  }
 });
 
-export type ButtonProps = Pick<React.ButtonHTMLAttributes<HTMLButtonElement>, "children"> &
+export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
   Required<StitchesVariants<typeof ButtonVariants>>;
 
 /**
  * A simple, accesible button component.
  *
- * Default values in bold.
- * @param color - **primary** | secondary
- * @param cornerRadius - square | **slight** | rounded
+ * @param color - primary | secondary
+ * @param cornerRadius - square | slight | rounded
  */
 export const Button = (props: ButtonProps) => {
   const ref = React.useRef<HTMLButtonElement>(null);
-  const { buttonProps } = useButton(props, ref);
+  const { buttonProps } = useButton(props as any, ref);
   const { children } = props;
 
   return (

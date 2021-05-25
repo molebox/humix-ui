@@ -11,6 +11,7 @@ export const { styled, getCssString, css, theme } = createCss({
             primary200: 'hsl(170, 86%, 80%)',
             secondary100: 'hsl(359, 93%, 52%)',
             secondary200: 'hsl(359, 93%, 60%)',
+            focusOutline: 'hsl(300, 47%, 75%)',
             darkText: '#2F2F2F',
             lightText: '#F7F3F5'
         },
@@ -65,7 +66,10 @@ export const { styled, getCssString, css, theme } = createCss({
             rounded: '9px',
             pill: '9999px', // rounded
         },
-        shadows: {},
+        shadows: {
+            primaryFocus: '0px 1px 0px 0px rgba(0,0,0,1), 0px 0px 8px hsl(170, 86%, 62%)',
+            secondaryFocus: '0px 1px 0px 0px rgba(0,0,0,1), 0px 0px 8px hsl(359, 93%, 52%)',
+        },
         zIndices: {},
         transitions: {},
     },
