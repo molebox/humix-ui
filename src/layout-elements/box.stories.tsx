@@ -49,6 +49,7 @@ export const NoFrillsBoxAsAside = () => (
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
+      backgroundColor: '$primary100',
     }}
   >
     Im a no frills aside box

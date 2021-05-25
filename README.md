@@ -118,6 +118,8 @@ It's main usage is as a container. It ships with a number of boolean props which
 
 The box also takes a `stylz` props which can be used to style the box using object syntax css.
 
+All css properties are avalaible via intellisense and you can use theme token direct in the `stylz` object!
+
 **Props**
  - stylz - Style the container by adding object syntax css. Accepts theme tokens as $myThemeToken
  - border - Attaches a 2px border
@@ -133,7 +135,7 @@ The box also takes a `stylz` props which can be used to style the box using obje
 The following example is a pure container with no visual styling.
 
  ```tsx
-import { Box } from 'humix-ui';
+import { Box, Button } from 'humix-ui';
 
 const RootBoogie = () => (
     <Box
@@ -151,12 +153,12 @@ const RootBoogie = () => (
 )
  ```
 
-The following container has some funky arse box shadow styling with a 2px border. The primary color are set via the theme config.
+The following container has some funky arse box shadow styling with a 2px border. The primary color is set via the theme config.
 
 Have a look [in real life](https://humix-ui.netlify.app/?path=/docs/layout-elements-box--primary-box-as-section)
 
   ```tsx
-import { Box } from 'humix-ui';
+import { Box, Button } from 'humix-ui';
 
 const RootBoogie = () => (
     <Box
@@ -172,6 +174,25 @@ const RootBoogie = () => (
       }}
     >
       <Button color="primary" cornerRadius="rounded" onClick={handleTheClicking}>Im a button!</Button>
+    </Box>
+)
+ ```
+
+ Last but not least, this box uses a theme token in it's `stylz` object. OMG 😱
+
+   ```tsx
+import { Box, Button } from 'humix-ui';
+
+const RootBoogie = () => (
+    <Box
+      as="aside"
+      primaryBottomRight
+      border
+      stylz={{
+        backgroundColor: '$primary100' // theme token magic
+      }}
+    >
+      <p>some text in my box</p>
     </Box>
 )
  ```
