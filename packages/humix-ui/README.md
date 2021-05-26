@@ -204,7 +204,7 @@ const RootBoogie = () => (
 
  #### Usage
 
-The link accepts two styling props, `primary` and `secondary`. These style the hover and active states and match them to the colors determined in the theme config.
+The link accepts two styling props, `primary` and `secondary`. These style the hover, focus and active states and match them to the colors determined in the theme config.
 
 TODO: add `stylz` prop for easy custom config.
 
@@ -226,7 +226,7 @@ const RootBoogie = () => (
 )
 ```
 
-The below example shows using the `as` prop in combination with `GatsbyLink`.
+The below example shows using the `as` prop in combination with `GatsbyLink`. Passing the `GatsbyLink` component via the `as` prop is not actually needed, the Links `href` prop will navigate to the desired page anyway.
 
 ```tsx
 import { Link } from 'humix-ui'
@@ -234,9 +234,26 @@ import { Link as GatsbyLink } from 'gatsby'
 
 const RootBoogie = () => (
     <section>
-      <Link primary as={GatsbyLink} to="/">
+      <Link primary as={GatsbyLink} href="/">
           Im a link, hover me!
       </Link>
+    </section>
+)
+```
+
+If you are using Nextjs you must wrap this Link component with the Nextjs Link component.
+
+```tsx
+import { Link } from 'humix-ui'
+import { Link as NextLink } from 'next/link'
+
+const RootBoogie = () => (
+    <section>
+      <NextLink href="/">
+        <Link primary>
+            Im a link, hover me!
+        </Link>
+      </NextLink>
     </section>
 )
 ```

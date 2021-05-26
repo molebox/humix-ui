@@ -6,7 +6,7 @@
         "sb": "yarn workspace humix-ui sb",
         "sb:build": "yarn workspace humix-ui build:storybook",
         "humix:build": "yarn workspace humix-ui build",
-        "humix:publish": "yarn workspace humix-ui publish"
+        "humix:publish": "yarn workspace humix-ui publish:lib"
     },
     "workspaces": [
         "packages/*"

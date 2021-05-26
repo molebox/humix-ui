@@ -1,5 +1,5 @@
 {
-  "version": "0.1.25",
+  "version": "0.1.27",
   "license": "MIT",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
@@ -13,7 +13,7 @@
     "pretty": "prettier --write \"src/**/*.{ts,tsx}\"",
     "sb": "start-storybook -p 6006",
     "build:storybook": "build-storybook",
-    "publish": "yarn publish"
+    "publish:lib": "yarn publish"
   },
   "husky": {
     "hooks": {
