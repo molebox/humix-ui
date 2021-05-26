@@ -4,7 +4,7 @@ import { styled } from '../../../stitches.config';
 import { useButton } from '@react-aria/button';
 
 const RootBoogie = styled('button', {
-  height: '$interactiveElementHeight',
+  minHeight: '$interactiveElementHeight',
   minWidth: '$interactiveElementMinWidth',
   fontSize: '$3',
   padding: '$4 $5',

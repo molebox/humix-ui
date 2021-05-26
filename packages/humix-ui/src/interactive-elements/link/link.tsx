@@ -12,6 +12,11 @@ const RootBoogie = styled('a', {
   width: 'fit-content',
   zIndex: 11,
   cursor: 'pointer',
+  // '&:focus': {
+  //   outline: '2px dotted',
+  //   textDecoration: 'none',
+  //   boxShadow: '$primaryFocus',
+  // },
 });
 
 const LinkVariants = styled(RootBoogie, {
@@ -43,7 +48,18 @@ const LinkVariants = styled(RootBoogie, {
         },
         '&:focus': {
           outline: 'none',
-          boxShadow: '$primaryFocus',
+          '&::after': {
+            content: `''`,
+            position: 'absolute',
+            display: 'inline-block',
+            top: '8px',
+            left: '-5px',
+            height: '10px',
+            zIndex: -10,
+            width: '100%',
+            backgroundColor: '$primary100',
+            transition: '0.8s ease',
+          }
         },
       },
     },
@@ -73,9 +89,19 @@ const LinkVariants = styled(RootBoogie, {
           transition: '0.8s ease',
         },
         '&:focus': {
-          outline: '2px dotted',
-          textDecoration: 'none',
-          boxShadow: '$secondaryFocus',
+          outline: 'none',
+          '&::after': {
+            content: `''`,
+            position: 'absolute',
+            display: 'inline-block',
+            top: '8px',
+            left: '-5px',
+            height: '10px',
+            zIndex: -10,
+            width: '100%',
+            backgroundColor: '$secondary100',
+            transition: '0.8s ease',
+          },
         },
       },
     },
@@ -86,21 +112,21 @@ export type LinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> &
   StitchesVariants<typeof LinkVariants>;
 
 type LinkComponent = Polymorphic.ForwardRefComponent<
-  typeof DEFAULT_ELEMENT,
-  LinkProps
+  Polymorphic.IntrinsicElement<typeof LinkVariants>,
+  Polymorphic.OwnProps<typeof LinkVariants>
 >;
 
 /**
  * A simple, accesible button component.
- *
+ * The `href` prop is used to navigate internally or externally.
+ * When used with Nextjs, the `as` prop wont work, instead, wrap this component
+ * with the Nextjs Link conponent.
  * @param color - primary | secondary
- * @param cornerRadius - square | slight | rounded
  */
 export const Link = React.forwardRef((props: LinkProps, forwardRef) => {
   const ref = React.useRef<HTMLAnchorElement>(null);
   const { linkProps } = useLink(props, ref);
   const { children, href, target } = props;
-
   return (
     <LinkVariants
       {...linkProps}
