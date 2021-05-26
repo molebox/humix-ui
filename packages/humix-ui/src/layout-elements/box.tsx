@@ -3,9 +3,7 @@ import { styled, CSS } from '../../stitches.config';
 import { StitchesVariants } from '@stitches/react';
 import type * as Polymorphic from '@radix-ui/react-polymorphic';
 
-const DEFAULT_ELEMENT = 'div';
-
-const RootBoogie = styled(DEFAULT_ELEMENT, {
+const RootBoogie = styled('div', {
   variants: {
     primaryBottomRight: {
       true: {
@@ -59,10 +57,10 @@ type OwnProps = {
   stylz?: CSS;
 };
 
-type BoxProps = Required<OwnProps> & StitchesVariants<typeof RootBoogie>;
+type BoxProps = OwnProps & StitchesVariants<typeof RootBoogie>;
 
 type BoxComponent = Polymorphic.ForwardRefComponent<
-  typeof DEFAULT_ELEMENT,
+  'div',
   BoxProps
 >;
 

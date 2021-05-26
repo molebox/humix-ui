@@ -2,7 +2,7 @@ import React from 'react'
 import { Link as GatsbyLink } from 'gatsby'
 import { Box, Button, Link } from 'humix-ui'
 
-export default () => {
+const Page2 = () => {
 
     return (
         <Box>
@@ -29,7 +29,7 @@ export default () => {
                     }}
                 >
                     <Button color="primary" cornerRadius="slight">Im a primary button</Button>
-                    <Link primary as={GatsbyLink} href="/page-2">Im a link to page 2</Link>
+                    <Link primary href="/">Back to page 1</Link>
                 </Box>
                 <Box
                     as="section"
@@ -44,10 +44,12 @@ export default () => {
                     }}
                 >
                     <Button color="secondary" cornerRadius="slight">Im a secondary button</Button>
-                    <Link secondary href="/page-2">Im a link to page 2</Link>
+                    <Link secondary href="/">Back to page 1</Link>
                 </Box>
             </Box>
 
         </Box>
     )
 }
+
+export default Page2
