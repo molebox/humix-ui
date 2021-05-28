@@ -12,12 +12,7 @@ const RootBoogie = styled('a', {
   position: 'relative',
   width: 'fit-content',
   zIndex: 11,
-  cursor: 'pointer',
-  // '&:focus': {
-  //   outline: '2px dotted',
-  //   textDecoration: 'none',
-  //   boxShadow: '$primaryFocus',
-  // },
+  cursor: 'pointer'
 });
 
 const LinkVariants = styled(RootBoogie, {
@@ -130,7 +125,7 @@ export const Link = React.forwardRef((props: LinkProps, forwardRef) => {
   const { children, href, target, stylz } = props;
   return (
     <LinkVariants
-      css={{...stylz}}
+      css={{ ...stylz }}
       {...linkProps}
       ref={forwardRef}
       href={href}

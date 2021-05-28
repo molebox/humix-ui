@@ -90,6 +90,12 @@ The button asks that you make a choice as to how you want it to render. It's tot
 
 Have a look [in real life](https://humix-ui.netlify.app/?path=/docs/interactive-elements-button--primary-button)
 
+| prop         | default  | description                                                                          | options                       |
+| ------------ | -------- | ------------------------------------------------------------------------------------ | ----------------------------- |
+| stylz        | optional | Style the element by adding object syntax css. Accepts theme tokens as $myThemeToken | n/a                           |
+| color        | none     | Background color of the button                                                       | `primary`, `secondary`        |
+| cornerRadius | none     | Corner radius of the button                                                          | `square`, `slight`, `rounded` |
+
 **Props**
 - stylz - Style the element by adding object syntax css. Accepts theme tokens as $myThemeToken
 - color
@@ -155,7 +161,7 @@ All css properties are avalaible via intellisense and you can use theme token di
 | secondaryBottomLeft  | optional | A box shadow using the secondary color on the bottom left                            | n/a                         |
 | secondaryBottomRight | optional | A box shadow using the secondary color on the bottom right                           | n/a                         |
 
-##### No styling
+#### No styling, just a container
 
  ```tsx
 import { Box, Button } from 'humix-ui';
@@ -176,54 +182,9 @@ const RootBoogie = () => (
 )
  ```
 
-##### Some funky arse box shadow styling with a 2px border. The primary color is set via the theme config.
+#### Some funky arse box shadow styling with a 2px border.
 
 Have a look [in real life](https://humix-ui.netlify.app/?path=/docs/layout-elements-box--primary-box-as-section)
-
-  ```tsx
-import { Box, Button } from 'humix-ui';
-
-const RootBoogie = () => (
-    <Box
-      as="aside"
-      primaryBottomRight
-      border
-      stylz={{
-        width: '300px',
-        height: '300px',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <Button color="primary" cornerRadius="rounded" onClick={handleTheClicking}>Im a button!</Button>
-    </Box>
-)
- ```
-
-##### Using the `stlyz` prop to override the base styles
-
-The box component is special in that, in a general sense its cool to override the base styles. It's got some nice base props bit as a conatiner component,
-you'll want to style it your way.
-
-   ```tsx
-import { Box, Button } from 'humix-ui';
-
-const RootBoogie = () => (
-    <Box
-      as="aside"
-      primaryBottomRight
-      border
-      stylz={{
-        backgroundColor: '$primary100' // theme token magic
-      }}
-    >
-      <p>some text in my box</p>
-    </Box>
-)
- ```
-
-##### Flexbox
 
 ```tsx
 import { Box, Button } from 'humix-ui';
@@ -231,20 +192,69 @@ import { Box, Button } from 'humix-ui';
 const RootBoogie = () => (
     <Box
       as="aside"
-      flex="column"
+      primaryBottomRight
+      border
+    >
+      <Button color="primary" cornerRadius="rounded" onClick={handleTheClicking}>Im a button!</Button>
+    </Box>
+)
+```
+
+#### Using the `stlyz` prop to override the base styles
+
+The box component is special in that, in a general sense its cool to override the base styles. It's got some nice base props bit as a conatiner component,
+you'll want to style it your way.
+
+```tsx
+import { Box, Typography } from 'humix-ui';
+
+const RootBoogie = () => (
+    <Box
+      as="aside"
+      primaryBottomRight
       border
       stylz={{
         backgroundColor: '$primary100' // theme token magic
       }}
     >
-      <p>some text in my box</p>
-      <p>some text in my box</p>
-      <p>some text in my box</p>
+      <Typography size="m">some text in my box</Typography>
     </Box>
 )
 ```
 
-##### Rersponsive grids
+#### Flexbox
+
+```tsx
+import { Box, Typography } from 'humix-ui';
+
+const RootBoogie = () => (
+    <Box
+      as="aside"
+      flex="column"
+      border
+      stylz={{
+        backgroundColor: '$primary100'
+      }}
+    >
+      <Box
+      as="aside"
+      border
+      primaryBottomRight
+      >
+        <Typography size="m">some text in my box</Typography>
+      </Box>
+      <Box
+      as="aside"
+      border
+      primaryBottomRight
+      >
+        <Typography size="m">some text in my box</Typography>
+      </Box>
+    </Box>
+)
+```
+
+#### Responsive grids
 
 The box supports some default responsive grids. Each grid prop equats to it title. So `autoFill300`
 will make all children fill their parents width with a value of 300px each. On smaller screens they will reduce to their parents max width.
@@ -252,7 +262,7 @@ will make all children fill their parents width with a value of 300px each. On s
 This means on mobile they should go single column. Don't forget to add padding to your container!
 
 ```tsx
-import { Box, Button } from 'humix-ui';
+import { Box, Typography } from 'humix-ui';
 
 const RootBoogie = () => (
     <Box
@@ -260,29 +270,48 @@ const RootBoogie = () => (
       flex="column"
       border
       stylz={{
-        backgroundColor: '$primary100' // theme token magic
+        backgroundColor: '$primary100'
       }}
     >
-      <p>some text in my box</p>
-      <p>some text in my box</p>
-      <p>some text in my box</p>
+      <Box
+      as="aside"
+      border
+      primaryBottomRight
+      >
+        <Typography size="m">some text in my box</Typography>
+      </Box>
+      <Box
+      as="aside"
+      border
+      primaryBottomRight
+      >
+        <Typography size="m">some text in my box</Typography>
+      </Box>
+      <Box
+      as="aside"
+      border
+      primaryBottomRight
+      >
+        <Typography size="m">some text in my box</Typography>
+      </Box>
     </Box>
 )
 ```
 
- ### Link
+### Link
 
  A link component that can be used for external linkage, but also accepts a polymorphic `as` prop so that you can use it with other cool links such as `GatsbyLink` or `NextLink`. It's accessible by default and has minimal styling.
 
- #### Usage
+#### Usage
 
 The link accepts two styling props, `primary` and `secondary`. These style the hover, focus and active states and match them to the colors determined in the theme config.
 
-TODO: add `stylz` prop for easy custom config.
+| prop      | default  | description                                                                          | options |
+| --------- | -------- | ------------------------------------------------------------------------------------ | ------- |
+| stylz     | optional | Style the element by adding object syntax css. Accepts theme tokens as $myThemeToken | n/a     |
+| primary   | none     | Primary background color                                                             | n/a     |
+| secondary | none     | Secondary background color                                                           | n/a     |
 
-**Props**
-- primary
-- secondary
 
 The below example shows an external link.
 
