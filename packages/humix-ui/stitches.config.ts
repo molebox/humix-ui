@@ -88,7 +88,7 @@ export const defaultTheme = createCss({
     },
 });
 
-export const { styled, getCssString, css, theme } = defaultTheme;
+export const { styled, getCssString, css, theme, media } = defaultTheme;
 
 export type CSS = StitchesCss<typeof defaultTheme>;
 

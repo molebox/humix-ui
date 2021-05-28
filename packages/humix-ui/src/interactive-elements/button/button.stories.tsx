@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
 import { Button } from './button';
+import { media } from '../../../stitches.config'
 
 export default {
   title: 'interactive-elements/button',
@@ -8,7 +9,7 @@ export default {
 } as Meta;
 
 export const PrimaryButton = () => (
-  <Button color="primary" cornerRadius="rounded">
+  <Button color="primary" cornerRadius={{'@sm': 'rounded', '@md': 'square'}}>
     Im a button!
   </Button>
 );

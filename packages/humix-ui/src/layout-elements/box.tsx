@@ -6,6 +6,34 @@ import { HumixBase } from '../utils';
 
 const RootBoogie = styled('div', {
   variants: {
+    flex: {
+      row: {
+        display: 'flex',
+        flexDirection: 'row'
+      },
+      column: {
+        display: 'flex',
+        flexDirection: 'column'
+      }
+    },
+    align: {
+      center: {
+        justifyContent: 'center',
+        alignItems: 'center'
+      },
+      even: {
+        justifyContent: 'space-evenly',
+        alignItems: 'center'
+      },
+      around: {
+        justifyContent: 'space-around',
+        alignItems: 'center'
+      },
+      between: {
+        justifyContent: 'space-between',
+        alignItems: 'center'
+      }
+    },
     primaryBottomRight: {
       true: {
         boxShadow: '$primaryBoxBottomRight',
@@ -70,6 +98,7 @@ type BoxComponent = Polymorphic.ForwardRefComponent<
  * A polymorphic box that can become one of the following HTML elements:
  * 'div' | 'section' | 'main' | 'header' | 'nav' | 'footer' | 'aside' | 'article'
  * @param stylz - Style the container by adding object syntax css. Accepts theme tokens as $myThemeToken
+ * @param flex - Creates a flexbox, decide the direction: `row` | `column`
  * @param border - Attaches a 2px border
  * @param primaryBottomRight - A box shadow using the primary color on the bottom right
  * @param primaryBottomLeft - A box shadow using the primary color on the bottom left

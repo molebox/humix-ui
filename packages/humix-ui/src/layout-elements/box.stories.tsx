@@ -12,6 +12,8 @@ export const PrimaryBoxAsSection = () => (
   <Box
     as="aside"
     primaryBottomRight
+    flex="row"
+    align="center"
     border
     stylz={{
       width: '300px',
