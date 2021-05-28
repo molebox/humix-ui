@@ -28,6 +28,7 @@ Current components:
 - [Button](#button)
 - [Box](#box)
 - [Link](#link)
+- [Typography](#typography)
 
 All components are created and styled using [stitches](https://stitches.dev/). The default theme object can be overriden by importing the `createTheme` function and replacing the theme tokens. Intellisense is included by default because stitches is dope.
 
@@ -95,16 +96,6 @@ Have a look [in real life](https://humix-ui.netlify.app/?path=/docs/interactive-
 | stylz        | optional | Style the element by adding object syntax css. Accepts theme tokens as $myThemeToken | n/a                           |
 | color        | none     | Background color of the button                                                       | `primary`, `secondary`        |
 | cornerRadius | none     | Corner radius of the button                                                          | `square`, `slight`, `rounded` |
-
-**Props**
-- stylz - Style the element by adding object syntax css. Accepts theme tokens as $myThemeToken
-- color
-  - primary
-  - secondary
-- cornerRadius
-  - square
-  - slight
-  - rounded
 
 ```tsx
 import { Button } from 'humix-ui'
@@ -357,4 +348,59 @@ const RootBoogie = () => (
       </NextLink>
     </section>
 )
+```
+
+### Typography
+
+The typography component is a polymorphic text component that can be used to render:
+
+- p (default)
+- h1
+- h2
+- h3
+- h4
+- h5
+- h6
+- blockquote
+- dd
+- li
+- abbr
+- cite
+- q
+- s
+
+It's font size is determined in the config and set via a `size` prop.
+
+#### Usage
+
+By default the component render a `p` tag, you'll still have to set the size though.
+
+| prop  | default  | description                                                                          | options |
+| ----- | -------- | ------------------------------------------------------------------------------------ | ------- |
+| stylz | optional | Style the element by adding object syntax css. Accepts theme tokens as $myThemeToken | n/a     |
+| xs    | none     | Extra small font size color                                                          | n/a     |
+| s     | none     | Small font size color                                                                | n/a     |
+| m     | none     | Medium font size - Your `1rem` color                                                 | n/a     |
+| l     | none     | Large font size color                                                                | n/a     |
+| xl    | none     | Extra large font size color                                                          | n/a     |
+| xxl   | none     | Double extra large font sizecolor                                                    | n/a     |
+| huge  | none     | Huge large font size color                                                           | n/a     |
+| jumbo | none     | Jumbo large font sizecolor                                                           | n/a     |
+
+```tsx
+export const Paragraph = () => (
+  <Typography size="m">
+    Im a paragraph!
+  </Typography>
+);
+```
+
+Using the component as other types of typography is as easy as declaring its type and setting its size.
+
+```tsx
+export const H1 = () => (
+  <Typography as="h1" size="jumbo">
+    Im an h1!
+  </Typography>
+);
 ```
