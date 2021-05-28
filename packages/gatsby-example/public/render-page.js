@@ -4778,24 +4778,24 @@ if (false) {} else {
 /***/ }),
 
 /***/ "react-dom/server":
-/*!************************************************************************************!*\
-  !*** external "/Users/richhaines/repos/humix-ui/node_modules/react-dom/server.js" ***!
-  \************************************************************************************/
+/*!****************************************************************************************************!*\
+  !*** external "D:\\HUNGRYBEARSTUDIO\\COMPONENT_LIB\\humix-ui\\node_modules\\react-dom\\server.js" ***!
+  \****************************************************************************************************/
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("/Users/richhaines/repos/humix-ui/node_modules/react-dom/server.js");;
+module.exports = require("D:\\HUNGRYBEARSTUDIO\\COMPONENT_LIB\\humix-ui\\node_modules\\react-dom\\server.js");;
 
 /***/ }),
 
 /***/ "react":
-/*!*******************************************************************************!*\
-  !*** external "/Users/richhaines/repos/humix-ui/node_modules/react/index.js" ***!
-  \*******************************************************************************/
+/*!***********************************************************************************************!*\
+  !*** external "D:\\HUNGRYBEARSTUDIO\\COMPONENT_LIB\\humix-ui\\node_modules\\react\\index.js" ***!
+  \***********************************************************************************************/
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("/Users/richhaines/repos/humix-ui/node_modules/react/index.js");;
+module.exports = require("D:\\HUNGRYBEARSTUDIO\\COMPONENT_LIB\\humix-ui\\node_modules\\react\\index.js");;
 
 /***/ })
 

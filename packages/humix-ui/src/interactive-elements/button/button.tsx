@@ -2,6 +2,7 @@ import * as React from 'react';
 import { StitchesVariants } from '@stitches/react';
 import { styled } from '../../../stitches.config';
 import { useButton } from '@react-aria/button';
+import { HumixBase } from '../../utils';
 
 const RootBoogie = styled('button', {
   minHeight: '$interactiveElementHeight',
@@ -58,7 +59,7 @@ const ButtonVariants = styled(RootBoogie, {
   },
 });
 
-export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
+export type ButtonProps = HumixBase & React.ButtonHTMLAttributes<HTMLButtonElement> &
   Required<StitchesVariants<typeof ButtonVariants>>;
 
 /**
@@ -70,10 +71,10 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
 export const Button = (props: ButtonProps) => {
   const ref = React.useRef<HTMLButtonElement>(null);
   const { buttonProps } = useButton(props as any, ref);
-  const { children } = props;
+  const { children, stylz } = props;
 
   return (
-    <ButtonVariants {...buttonProps} ref={ref} {...props}>
+    <ButtonVariants css={{...stylz}} {...buttonProps} ref={ref} {...props}>
       {children}
     </ButtonVariants>
   );

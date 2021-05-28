@@ -4,7 +4,7 @@ export const defaultTheme = createCss({
     prefix: 'humix-',
     theme: {
         fonts: {
-            system: 'system-ui',
+            openSans: 'Open Sans',
         },
         colors: {
             primary100: 'hsl(170, 86%, 62%)',
@@ -28,14 +28,14 @@ export const defaultTheme = createCss({
             10: '512px',
         },
         fontSizes: {
-            1: '0.75rem',
-            2: '0.875rem',
-            3: '1rem',
-            4: '1.25rem',
-            5: '1.5rem',
-            6: '2rem',
-            7: '3rem',
-            8: '4rem',
+            xs: '0.75rem', // xs
+            s: '0.875rem', // s
+            m: '1rem', // m
+            l: '1.25rem', // l
+            xl: '1.5rem', // xl
+            xxl: '2rem', // xxl
+            huge: '3rem', // huge
+            jumbo: '4rem', // jumbo
         },
         fontWeights: {},
         lineHeights: {

@@ -3,6 +3,7 @@ import { StitchesVariants } from '@stitches/react';
 import { styled } from '../../../stitches.config';
 import { useLink } from '@react-aria/link';
 import type * as Polymorphic from '@radix-ui/react-polymorphic';
+import { HumixBase } from '../../utils';
 
 const DEFAULT_ELEMENT = 'a';
 
@@ -108,7 +109,7 @@ const LinkVariants = styled(RootBoogie, {
   },
 });
 
-export type LinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> &
+export type LinkProps = HumixBase & React.AnchorHTMLAttributes<HTMLAnchorElement> &
   StitchesVariants<typeof LinkVariants>;
 
 type LinkComponent = Polymorphic.ForwardRefComponent<
@@ -126,9 +127,10 @@ type LinkComponent = Polymorphic.ForwardRefComponent<
 export const Link = React.forwardRef((props: LinkProps, forwardRef) => {
   const ref = React.useRef<HTMLAnchorElement>(null);
   const { linkProps } = useLink(props, ref);
-  const { children, href, target } = props;
+  const { children, href, target, stylz } = props;
   return (
     <LinkVariants
+      css={{...stylz}}
       {...linkProps}
       ref={forwardRef}
       href={href}

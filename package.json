@@ -2,6 +2,7 @@
     "private": true,
     "scripts": {
         "gatsby:dev": "yarn workspace gatsby-example dev",
+        "gatsby:clean": "yarn workspace gatsby-example clean",
         "next:dev": "yarn workspace next-example dev",
         "sb": "yarn workspace humix-ui sb",
         "sb:build": "yarn workspace humix-ui build:storybook",
