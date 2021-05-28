@@ -91,6 +91,7 @@ The button asks that you make a choice as to how you want it to render. It's tot
 Have a look [in real life](https://humix-ui.netlify.app/?path=/docs/interactive-elements-button--primary-button)
 
 **Props**
+- stylz - Style the element by adding object syntax css. Accepts theme tokens as $myThemeToken
 - color
   - primary
   - secondary
@@ -111,7 +112,16 @@ const RootBoogie = () => (
 
 ### Box
 
-A polymorphic box that can be styled in multiple ways. The box has an `as` props which allows it to be rendered as any HTML element.
+A polymorphic box that can be styled in multiple ways. The box has an `as` props which allows it to be rendered as any of the following HTML elements:
+
+- div (default)
+- section
+- main
+- header
+- nav
+- footer
+- aside
+- article
 
 #### Usage
 
@@ -121,19 +131,31 @@ The box also takes a `stylz` props which can be used to style the box using obje
 
 All css properties are avalaible via intellisense and you can use theme token direct in the `stylz` object!
 
-**Props**
- - stylz - Style the container by adding object syntax css. Accepts theme tokens as $myThemeToken
- - border - Attaches a 2px border
- - primaryBottomRight - A box shadow using the primary color on the bottom right
- - primaryBottomLeft - A box shadow using the primary color on the bottom left
- - primaryTopRight - A box shadow using the primary color on the top right
- - primaryTopLeft - A box shadow using the primary color on the top left
- - secondaryTopLeft - A box shadow using the secondary color on the top left
- - secondaryTopRight - A box shadow using the secondary color on the top right
- - secondaryBottomLeft - A box shadow using the secondary color on the bottom left
- - secondaryBottomRight - A box shadow using the secondary color on the bottom right
+| prop                 | default  | description                                                                          | options                     |
+| -------------------- | -------- | ------------------------------------------------------------------------------------ | --------------------------- |
+| stylz                | optional | Style the element by adding object syntax css. Accepts theme tokens as $myThemeToken | n/a                         |
+| border               | optional | Attaches a 2px border                                                                | n/a                         |
+| maxWidth             | optional | Max width of the box.                                                                | `500px`, `1000px`, `1440px` |
+| autoFill300          | optional | Responsive grid (auto-fill), min - auto, max - 300px                                 | n/a                         |
+| autoFill350          | optional | Responsive grid (auto-fill), min - auto, max - 350px                                 | n/a                         |
+| autoFill400          | optional | Responsive grid (auto-fill), min - auto, max - 400px                                 | n/a                         |
+| autoFill450          | optional | Responsive grid (auto-fill), min - auto, max - 450px                                 | n/a                         |
+| autoFill500          | optional | Responsive grid (auto-fill), min - auto, max - 500px                                 | n/a                         |
+| autoFit300           | optional | Responsive grid (auto-fit), min - auto, max - 300px                                  | n/a                         |
+| autoFit350           | optional | Responsive grid (auto-fit), min - auto, max - 350px                                  | n/a                         |
+| autoFit400           | optional | Responsive grid (auto-fit), min - auto, max - 400px                                  | n/a                         |
+| autoFit450           | optional | Responsive grid (auto-fit), min - auto, max - 450px                                  | n/a                         |
+| autoFit500           | optional | Responsive grid (auto-fit), min - auto, max - 500px                                  | n/a                         |
+| primaryBottomRight   | optional | A box shadow using the primary color on the bottom right                             | n/a                         |
+| primaryBottomLeft    | optional | A box shadow using the primary color on the bottom left                              | n/a                         |
+| primaryTopRight      | optional | A box shadow using the primary color on the top right                                | n/a                         |
+| primaryTopLeft       | optional | A box shadow using the primary color on the top left                                 | n/a                         |
+| secondaryTopLeft     | optional | A box shadow using the secondary color on the top left                               | n/a                         |
+| secondaryTopRight    | optional | A box shadow using the secondary color on the top right                              | n/a                         |
+| secondaryBottomLeft  | optional | A box shadow using the secondary color on the bottom left                            | n/a                         |
+| secondaryBottomRight | optional | A box shadow using the secondary color on the bottom right                           | n/a                         |
 
-The following example is a pure container with no visual styling.
+##### No styling
 
  ```tsx
 import { Box, Button } from 'humix-ui';
@@ -154,7 +176,7 @@ const RootBoogie = () => (
 )
  ```
 
-The following container has some funky arse box shadow styling with a 2px border. The primary color is set via the theme config.
+##### Some funky arse box shadow styling with a 2px border. The primary color is set via the theme config.
 
 Have a look [in real life](https://humix-ui.netlify.app/?path=/docs/layout-elements-box--primary-box-as-section)
 
@@ -179,7 +201,10 @@ const RootBoogie = () => (
 )
  ```
 
- Last but not least, this box uses a theme token in it's `stylz` object. OMG 😱
+##### Using the `stlyz` prop to override the base styles
+
+The box component is special in that, in a general sense its cool to override the base styles. It's got some nice base props bit as a conatiner component,
+you'll want to style it your way.
 
    ```tsx
 import { Box, Button } from 'humix-ui';
@@ -197,6 +222,53 @@ const RootBoogie = () => (
     </Box>
 )
  ```
+
+##### Flexbox
+
+```tsx
+import { Box, Button } from 'humix-ui';
+
+const RootBoogie = () => (
+    <Box
+      as="aside"
+      flex="column"
+      border
+      stylz={{
+        backgroundColor: '$primary100' // theme token magic
+      }}
+    >
+      <p>some text in my box</p>
+      <p>some text in my box</p>
+      <p>some text in my box</p>
+    </Box>
+)
+```
+
+##### Rersponsive grids
+
+The box supports some default responsive grids. Each grid prop equats to it title. So `autoFill300`
+will make all children fill their parents width with a value of 300px each. On smaller screens they will reduce to their parents max width.
+
+This means on mobile they should go single column. Don't forget to add padding to your container!
+
+```tsx
+import { Box, Button } from 'humix-ui';
+
+const RootBoogie = () => (
+    <Box
+      as="aside"
+      flex="column"
+      border
+      stylz={{
+        backgroundColor: '$primary100' // theme token magic
+      }}
+    >
+      <p>some text in my box</p>
+      <p>some text in my box</p>
+      <p>some text in my box</p>
+    </Box>
+)
+```
 
  ### Link
 
