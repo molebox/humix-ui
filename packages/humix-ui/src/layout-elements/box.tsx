@@ -19,6 +19,23 @@ const RootBoogie = styled('div', {
         maxWidth: '1440px'
       }
     },
+    width: {
+      full: {
+        width: '100%'
+      },
+      threeQuarters: {
+        width: '75%'
+      },
+      half: {
+        width: '50%'
+      },
+      quarter: {
+        width: '25%'
+      },
+      none: {
+        width: 0
+      }
+    },
     autoFill300: {
       true: {
         display: 'grid',
@@ -163,6 +180,126 @@ const RootBoogie = styled('div', {
       },
     },
   },
+  p: {
+    none: {
+      p: '$1'
+    },
+    2: {
+      p: '#2'
+    },
+    4: {
+      p: '$3'
+    },
+    8: {
+      p: '$4'
+    },
+    16: {
+      p: '$5'
+    },
+    32: {
+      p: '$6'
+    },
+  },
+  py: {
+    none: {
+      py: '$1'
+    },
+    2: {
+      py: '#2'
+    },
+    4: {
+      py: '$3'
+    },
+    8: {
+      py: '$4'
+    },
+    16: {
+      py: '$5'
+    },
+    32: {
+      py: '$6'
+    }
+  },
+  px: {
+    none: {
+      px: '$1'
+    },
+    2: {
+      px: '#2'
+    },
+    4: {
+      px: '$3'
+    },
+    8: {
+      px: '$4'
+    },
+    16: {
+      px: '$5'
+    },
+    32: {
+      px: '$6'
+    }
+  },
+  m: {
+    none: {
+      m: '$1'
+    },
+    2: {
+      m: '#2'
+    },
+    4: {
+      m: '$3'
+    },
+    8: {
+      m: '$4'
+    },
+    16: {
+      m: '$5'
+    },
+    32: {
+      m: '$6'
+    },
+  },
+  my: {
+    none: {
+      my: '$1'
+    },
+    2: {
+      my: '#2'
+    },
+    4: {
+      my: '$3'
+    },
+    8: {
+      my: '$4'
+    },
+    16: {
+      my: '$5'
+    },
+    32: {
+      my: '$6'
+    }
+  },
+  mx: {
+    none: {
+      mx: '$1'
+    },
+    2: {
+      mx: '#2'
+    },
+    4: {
+      mx: '$3'
+    },
+    8: {
+      mx: '$4'
+    },
+    16: {
+      mx: '$5'
+    },
+    32: {
+      mx: '$6'
+    }
+  }
 });
 
 
@@ -184,6 +321,7 @@ type BoxComponent = Polymorphic.ForwardRefComponent<
  * @param flex - Creates a flexbox, decide the direction: `row` | `column`
  * @param border - Attaches a 2px border
  * @param maxWidth - Max width of the box. `500` | `1000` | `1440`
+ * @param width - Width of the box. `100%` | `75%` | `50%` | `25%` | 0
  * @param autoFill300 - Responsive grid (auto-fill), min - auto, max - 300px
  * @param autoFill350 - Responsive grid (auto-fill), min - auto, max - 350px
  * @param autoFill400 - Responsive grid (auto-fill), min - auto, max - 400px

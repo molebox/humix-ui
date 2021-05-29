@@ -7,7 +7,13 @@
   \**********************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var plugins = []; // During bootstrap, we write requires at top of this file which looks like:
+var plugins = [{
+  name: 'default-site-plugin',
+  plugin: __webpack_require__(/*! ./gatsby-ssr */ "./gatsby-ssr.js"),
+  options: {
+    "plugins": []
+  }
+}]; // During bootstrap, we write requires at top of this file which looks like:
 // var plugins = [
 //   {
 //     plugin: require("/path/to/plugin1/gatsby-ssr.js"),
@@ -323,6 +329,3032 @@ HTML.propTypes = {
   body: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().string),
   postBodyComponents: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().array)
 };
+
+/***/ }),
+
+/***/ "./gatsby-ssr.js":
+/*!***********************!*\
+  !*** ./gatsby-ssr.js ***!
+  \***********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "onRenderBody": () => (/* binding */ onRenderBody)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var humix_ui__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! humix-ui */ "../humix-ui/lib/index.esm.js");
+
+
+const onRenderBody = ({
+  setHeadComponents
+}) => {
+  setHeadComponents([/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("style", {
+    id: "stitches",
+    dangerouslySetInnerHTML: {
+      __html: (0,humix_ui__WEBPACK_IMPORTED_MODULE_1__.getCssString)()
+    }
+  })]);
+};
+
+/***/ }),
+
+/***/ "../humix-ui/lib/index.esm.js":
+/*!************************************!*\
+  !*** ../humix-ui/lib/index.esm.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Box": () => (/* binding */ Box),
+/* harmony export */   "Button": () => (/* binding */ Button),
+/* harmony export */   "Link": () => (/* binding */ Link),
+/* harmony export */   "Typography": () => (/* binding */ Typography),
+/* harmony export */   "createTheme": () => (/* binding */ theme),
+/* harmony export */   "fontFace": () => (/* binding */ fontFace),
+/* harmony export */   "getCssString": () => (/* binding */ getCssString),
+/* harmony export */   "multiFontFace": () => (/* binding */ multiFontFace),
+/* harmony export */   "pastelTheme": () => (/* binding */ pastelTheme),
+/* harmony export */   "resetCSS": () => (/* binding */ resetCSS)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+
+var {
+  toPrimitive: e
+} = Symbol,
+    t = Symbol.for("sxs.composers"),
+    {
+  assign: n,
+  create: r,
+  defineProperties: i,
+  getOwnPropertyDescriptors: o
+} = Object,
+    a = (t, r, a) => n(i(t, o(a)), {
+  [e]: () => t[r],
+  toString: () => t[r]
+}),
+    l = e => e.includes("-") ? e : e.replace(/[A-Z]/g, e => "-" + e.toLowerCase()),
+    s = (e, t) => e.reduce((e, n) => (e.push(...t.map(e => e.includes("&") ? e.replace(/&/g, /[ +>|~]/.test(n) && /&.*&/.test(e) ? `:is(${n})` : n) : n + " " + e)), e), []),
+    {
+  isArray: d
+} = Array,
+    {
+  from: c
+} = Array,
+    {
+  prototype: {
+    toString: g
+  }
+} = Object,
+    p = /\s*,\s*(?![^()]*\))/,
+    m = /([\d.]+)([^]*)/,
+    h = {
+  blockSize: 1,
+  height: 1,
+  inlineSize: 1,
+  maxBlockSize: 1,
+  maxHeight: 1,
+  maxInlineSize: 1,
+  maxWidth: 1,
+  minBlockSize: 1,
+  minHeight: 1,
+  minInlineSize: 1,
+  minWidth: 1,
+  width: 1
+},
+    u = {
+  animationDelay: 1,
+  animationDuration: 1,
+  backgroundSize: 1,
+  blockSize: 1,
+  border: 1,
+  borderBlock: 1,
+  borderBlockEnd: 1,
+  borderBlockEndWidth: 1,
+  borderBlockStart: 1,
+  borderBlockStartWidth: 1,
+  borderBlockWidth: 1,
+  borderBottom: 1,
+  borderBottomLeftRadius: 1,
+  borderBottomRightRadius: 1,
+  borderBottomWidth: 1,
+  borderEndEndRadius: 1,
+  borderEndStartRadius: 1,
+  borderInlineEnd: 1,
+  borderInlineEndWidth: 1,
+  borderInlineStart: 1,
+  borderInlineStartWidth: 1,
+  borderInlineWidth: 1,
+  borderLeft: 1,
+  borderLeftWidth: 1,
+  borderRadius: 1,
+  borderRight: 1,
+  borderRightWidth: 1,
+  borderSpacing: 1,
+  borderStartEndRadius: 1,
+  borderStartStartRadius: 1,
+  borderTop: 1,
+  borderTopLeftRadius: 1,
+  borderTopRightRadius: 1,
+  borderTopWidth: 1,
+  borderWidth: 1,
+  bottom: 1,
+  columnGap: 1,
+  columnRule: 1,
+  columnRuleWidth: 1,
+  columnWidth: 1,
+  containIntrinsicSize: 1,
+  flexBasis: 1,
+  fontSize: 1,
+  gap: 1,
+  gridAutoColumns: 1,
+  gridAutoRows: 1,
+  gridTemplateColumns: 1,
+  gridTemplateRows: 1,
+  height: 1,
+  inlineSize: 1,
+  inset: 1,
+  insetBlock: 1,
+  insetBlockEnd: 1,
+  insetBlockStart: 1,
+  insetInline: 1,
+  insetInlineEnd: 1,
+  insetInlineStart: 1,
+  left: 1,
+  letterSpacing: 1,
+  margin: 1,
+  marginBlock: 1,
+  marginBlockEnd: 1,
+  marginBlockStart: 1,
+  marginBottom: 1,
+  marginInline: 1,
+  marginInlineEnd: 1,
+  marginInlineStart: 1,
+  marginLeft: 1,
+  marginRight: 1,
+  marginTop: 1,
+  maxBlockSize: 1,
+  maxHeight: 1,
+  maxInlineSize: 1,
+  maxWidth: 1,
+  minBlockSize: 1,
+  minHeight: 1,
+  minInlineSize: 1,
+  minWidth: 1,
+  offsetDistance: 1,
+  offsetRotate: 1,
+  outline: 1,
+  outlineOffset: 1,
+  outlineWidth: 1,
+  overflowClipMargin: 1,
+  padding: 1,
+  paddingBlock: 1,
+  paddingBlockEnd: 1,
+  paddingBlockStart: 1,
+  paddingBottom: 1,
+  paddingInline: 1,
+  paddingInlineEnd: 1,
+  paddingInlineStart: 1,
+  paddingLeft: 1,
+  paddingRight: 1,
+  paddingTop: 1,
+  perspective: 1,
+  right: 1,
+  rowGap: 1,
+  scrollMargin: 1,
+  scrollMarginBlock: 1,
+  scrollMarginBlockEnd: 1,
+  scrollMarginBlockStart: 1,
+  scrollMarginBottom: 1,
+  scrollMarginInline: 1,
+  scrollMarginInlineEnd: 1,
+  scrollMarginInlineStart: 1,
+  scrollMarginLeft: 1,
+  scrollMarginRight: 1,
+  scrollMarginTop: 1,
+  scrollPadding: 1,
+  scrollPaddingBlock: 1,
+  scrollPaddingBlockEnd: 1,
+  scrollPaddingBlockStart: 1,
+  scrollPaddingBottom: 1,
+  scrollPaddingInline: 1,
+  scrollPaddingInlineEnd: 1,
+  scrollPaddingInlineStart: 1,
+  scrollPaddingLeft: 1,
+  scrollPaddingRight: 1,
+  scrollPaddingTop: 1,
+  shapeMargin: 1,
+  textDecoration: 1,
+  textDecorationThickness: 1,
+  textIndent: 1,
+  textUnderlineOffset: 1,
+  top: 1,
+  transitionDelay: 1,
+  transitionDuration: 1,
+  verticalAlign: 1,
+  width: 1,
+  wordSpacing: 1
+},
+    f = /\s+(?![^()]*\))/,
+    b = e => t => e(...("string" == typeof t ? String(t).split(f) : [t])),
+    S = JSON.stringify,
+    k = {
+  appearance: e => ({
+    WebkitAppearance: e,
+    appearance: e
+  }),
+  backfaceVisibility: e => ({
+    WebkitBackfaceVisibility: e,
+    backfaceVisibility: e
+  }),
+  backdropFilter: e => ({
+    WebkitBackdropFilter: e,
+    backdropFilter: e
+  }),
+  backgroundClip: e => ({
+    WebkitBackgroundClip: e,
+    backgroundClip: e
+  }),
+  boxDecorationBreak: e => ({
+    WebkitBoxDecorationBreak: e,
+    boxDecorationBreak: e
+  }),
+  clipPath: e => ({
+    WebkitClipPath: e,
+    clipPath: e
+  }),
+  content: e => ({
+    content: e.includes('"') || e.includes("'") || /^([A-Za-z]+\([^]*|[^]*-quote|inherit|initial|none|normal|revert|unset)$/.test(e) ? e : `"${e}"`
+  }),
+  hyphens: e => ({
+    WebkitHyphens: e,
+    hyphens: e
+  }),
+  maskImage: e => ({
+    WebkitMaskImage: e,
+    maskImage: e
+  }),
+  tabSize: e => ({
+    MozTabSize: e,
+    tabSize: e
+  }),
+  userSelect: e => ({
+    WebkitUserSelect: e,
+    userSelect: e
+  }),
+  marginBlock: b((e, t) => ({
+    marginBlockStart: e,
+    marginBlockEnd: t || e
+  })),
+  marginInline: b((e, t) => ({
+    marginInlineStart: e,
+    marginInlineEnd: t || e
+  })),
+  maxSize: b((e, t) => ({
+    maxBlockSize: e,
+    maxInlineSize: t || e
+  })),
+  minSize: b((e, t) => ({
+    minBlockSize: e,
+    minInlineSize: t || e
+  })),
+  paddingBlock: b((e, t) => ({
+    paddingBlockStart: e,
+    paddingBlockEnd: t || e
+  })),
+  paddingInline: b((e, t) => ({
+    paddingInlineStart: e,
+    paddingInlineEnd: t || e
+  }))
+},
+    B = e => {
+  let t, n, r, i;
+  const o = {};
+  return a => {
+    const c = S(a);
+    return c in o ? o[c] : o[c] = ((e, t) => {
+      const n = new WeakSet(),
+            r = (e, i, o, a, c) => {
+        let m = "";
+
+        e: for (const h in e) {
+          const u = 64 === h.charCodeAt(0);
+
+          for (const f of u && d(e[h]) ? e[h] : [e[h]]) {
+            if (t && (h !== a || f !== c)) {
+              const n = t(h, f, e);
+
+              if (null !== n) {
+                m += "object" == typeof n && n ? r(n, i, o, h, f) : null == n ? "" : n;
+                continue e;
+              }
+            }
+
+            if ("object" == typeof f && f && f.toString === g) {
+              n.has(i) && (n.delete(i), m += "}");
+              const e = Object(h),
+                    t = u ? i : i.length ? s(i, h.split(p)) : h.split(p);
+              m += r(f, t, u ? o.concat(e) : o), n.has(e) && (n.delete(e), m += "}"), n.has(t) && (n.delete(t), m += "}");
+            } else {
+              for (let e = 0; e < o.length; ++e) n.has(o[e]) || (n.add(o[e]), m += o[e] + "{");
+
+              i.length && !n.has(i) && (n.add(i), m += i + "{"), m += (u ? h + " " : l(h) + ":") + String(f) + ";";
+            }
+          }
+        }
+
+        return m;
+      };
+
+      return r(e, [], []);
+    })(a, (o, a) => {
+      const s = o.charCodeAt(0),
+            d = 64 === s ? o : /[A-Z]/.test(c = o) ? c : c.replace(/-[^]/g, e => e[1].toUpperCase());
+      var c;
+      const g = 64 === s ? o : l(o);
+
+      if ("function" == typeof e.utils[o]) {
+        if (e.utils[o] != r || a != i) return r = e.utils[o], i = a, r(e)(i);
+      } else if ("function" == typeof k[d] && (k[d] != r || a != i)) return r = k[d], i = a, r(i);
+
+      if (i = a, t != d && n != a && g in h) {
+        t = d, n = a;
+
+        const e = ((e, t) => t.replace(/^((?:[^]*[^\w-])?)(fit-content|stretch)((?:[^\w-][^]*)?)$/, (t, n, r, i) => n + ("stretch" === r ? `-moz-available${i};${e}:${n}-webkit-fill-available` : `-moz-fit-content${i};${e}:${n}fit-content`) + i))(g, String(n));
+
+        if (e != a) return {
+          [o]: e
+        };
+      }
+
+      let p = 64 === s ? (o.slice(1) in e.media ? "@media " + e.media[o.slice(1)] : o).replace(/\(\s*([\w-]+)\s*(=|<|<=|>|>=)\s*([\w-]+)\s*(?:(<|<=|>|>=)\s*([\w-]+)\s*)?\)/g, (e, t, n, r, i, o) => {
+        const a = m.test(t),
+              l = .0625 * (a ? -1 : 1),
+              [s, d] = a ? [r, t] : [t, r];
+        return "(" + ("=" === n[0] ? "" : ">" === n[0] === a ? "max-" : "min-") + s + ":" + ("=" !== n[0] && 1 === n.length ? d.replace(m, (e, t, r) => Number(t) + l * (">" === n ? 1 : -1) + r) : d) + (i ? ") and (" + (">" === i[0] ? "min-" : "max-") + s + ":" + (1 === i.length ? o.replace(m, (e, t, n) => Number(t) + l * (">" === i ? -1 : 1) + n) : o) : "") + ")";
+      }) : 36 === s ? ("sx" === e.prefix ? "-" : "--" + e.prefix) + o.replace(/\$/g, "-") : o;
+      const f = "object" == typeof a && a ? a : "number" == typeof a && a && d in u ? String(a) + "px" : ((e, t, n) => t.replace(/([+-])?((?:\d+(?:\.\d*)?|\.\d+)(?:[Ee][+-]?\d+)?)?(\$|--)([$\w-]+)/g, (t, r, i, o, a) => "$" == o == !!i ? t : (r || "--" == o ? "calc(" : "") + "var(" + ("$" === o ? ("sx" === n.prefix ? "-" : "--" + n.prefix) + "-" + (a.includes("$") ? "" : e in n.themeMap ? n.themeMap[e] + "-" : "") + a.replace(/\$/g, "-") : o + a) + ")" + (r || "--" == o ? "*" + (r || "") + (i || "1") + ")" : "")))(d, String(a), e);
+      return a != f || g != p ? {
+        [p]: f
+      } : null;
+    });
+  };
+},
+    {
+  ownKeys: y
+} = Reflect,
+    I = class extends Set {
+  toString() {
+    return c(this).join("");
+  }
+
+  get hasChanged() {
+    const {
+      size: e
+    } = this;
+    return () => e < this.size;
+  }
+
+},
+    x = I;
+
+I.prototype[e] = I.prototype.toString;
+
+var w = "colors",
+    z = "sizes",
+    W = "space",
+    E = {
+  gap: W,
+  gridGap: W,
+  columnGap: W,
+  gridColumnGap: W,
+  rowGap: W,
+  gridRowGap: W,
+  inset: W,
+  insetBlock: W,
+  insetBlockEnd: W,
+  insetBlockStart: W,
+  insetInline: W,
+  insetInlineEnd: W,
+  insetInlineStart: W,
+  margin: W,
+  marginTop: W,
+  marginRight: W,
+  marginBottom: W,
+  marginLeft: W,
+  marginBlock: W,
+  marginBlockEnd: W,
+  marginBlockStart: W,
+  marginInline: W,
+  marginInlineEnd: W,
+  marginInlineStart: W,
+  padding: W,
+  paddingTop: W,
+  paddingRight: W,
+  paddingBottom: W,
+  paddingLeft: W,
+  paddingBlock: W,
+  paddingBlockEnd: W,
+  paddingBlockStart: W,
+  paddingInline: W,
+  paddingInlineEnd: W,
+  paddingInlineStart: W,
+  top: W,
+  right: W,
+  bottom: W,
+  left: W,
+  scrollMargin: W,
+  scrollMarginTop: W,
+  scrollMarginRight: W,
+  scrollMarginBottom: W,
+  scrollMarginLeft: W,
+  scrollMarginX: W,
+  scrollMarginY: W,
+  scrollMarginBlock: W,
+  scrollMarginBlockEnd: W,
+  scrollMarginBlockStart: W,
+  scrollMarginInline: W,
+  scrollMarginInlineEnd: W,
+  scrollMarginInlineStart: W,
+  scrollPadding: W,
+  scrollPaddingTop: W,
+  scrollPaddingRight: W,
+  scrollPaddingBottom: W,
+  scrollPaddingLeft: W,
+  scrollPaddingX: W,
+  scrollPaddingY: W,
+  scrollPaddingBlock: W,
+  scrollPaddingBlockEnd: W,
+  scrollPaddingBlockStart: W,
+  scrollPaddingInline: W,
+  scrollPaddingInlineEnd: W,
+  scrollPaddingInlineStart: W,
+  fontSize: "fontSizes",
+  background: w,
+  backgroundColor: w,
+  backgroundImage: w,
+  border: w,
+  borderBlock: w,
+  borderBlockEnd: w,
+  borderBlockStart: w,
+  borderBottom: w,
+  borderBottomColor: w,
+  borderColor: w,
+  borderInline: w,
+  borderInlineEnd: w,
+  borderInlineStart: w,
+  borderLeft: w,
+  borderLeftColor: w,
+  borderRight: w,
+  borderRightColor: w,
+  borderTop: w,
+  borderTopColor: w,
+  caretColor: w,
+  color: w,
+  columnRuleColor: w,
+  fill: w,
+  outline: w,
+  outlineColor: w,
+  stroke: w,
+  textDecorationColor: w,
+  fontFamily: "fonts",
+  fontWeight: "fontWeights",
+  lineHeight: "lineHeights",
+  letterSpacing: "letterSpacings",
+  blockSize: z,
+  minBlockSize: z,
+  maxBlockSize: z,
+  inlineSize: z,
+  minInlineSize: z,
+  maxInlineSize: z,
+  width: z,
+  minWidth: z,
+  maxWidth: z,
+  height: z,
+  minHeight: z,
+  maxHeight: z,
+  flexBasis: z,
+  gridTemplateColumns: z,
+  gridTemplateRows: z,
+  borderWidth: "borderWidths",
+  borderTopWidth: "borderWidths",
+  borderRightWidth: "borderWidths",
+  borderBottomWidth: "borderWidths",
+  borderLeftWidth: "borderWidths",
+  borderStyle: "borderStyles",
+  borderTopStyle: "borderStyles",
+  borderRightStyle: "borderStyles",
+  borderBottomStyle: "borderStyles",
+  borderLeftStyle: "borderStyles",
+  borderRadius: "radii",
+  borderTopLeftRadius: "radii",
+  borderTopRightRadius: "radii",
+  borderBottomRightRadius: "radii",
+  borderBottomLeftRadius: "radii",
+  boxShadow: "shadows",
+  textShadow: "shadows",
+  transition: "transitions",
+  zIndex: "zIndices"
+},
+    R = (e, t) => {
+  for (var n = JSON.stringify(t), r = n.length, i = 9; r;) i = Math.imul(i ^ n.charCodeAt(--r), 9 ** 9);
+
+  return e + (i ^ i >>> 9).toString(36).slice(-5);
+},
+    M = e => e ? "-" + e : "",
+    C = class {
+  constructor(e, t, n = "", r = "") {
+    this.value = e, this.token = t, this.scale = n, this.prefix = r;
+  }
+
+  get computedValue() {
+    return "var(" + this.variable + ")";
+  }
+
+  get variable() {
+    return "-" + M(this.prefix) + M(this.scale) + "-" + this.token;
+  }
+
+  toString() {
+    return this.computedValue;
+  }
+
+},
+    P = class extends Array {
+  toString() {
+    return this.join("");
+  }
+
+  get hasChanged() {
+    const e = String(this);
+    return () => e !== String(this);
+  }
+
+},
+    T = P;
+
+P.prototype[e] = P.prototype.toString;
+
+var j = e => {
+  let t,
+      r,
+      i,
+      o,
+      a,
+      l = !1;
+  const s = "append" === e.insertionMethod ? "append" : "prepend";
+  return e => {
+    "object" == typeof document && (t || (t = document.head || document.documentElement), r || (r = document.getElementById("stitches") || n(document.createElement("style"), {
+      id: "stitches",
+      textContent: e
+    })), i || (i = r.firstChild || new Text(), l = !i.data), o || (o = r.insertBefore(new Text(), i)), r.isConnected || t[s](r), o.data = e, !l && e && (clearTimeout(a), a = setTimeout(() => {
+      i.remove(), l = !0;
+    }, 250)));
+  };
+},
+    v = e => {
+  e = "object" == typeof e && e || {};
+  const i = {};
+  i.media = n({
+    initial: "all"
+  }, e.media), i.theme = "object" == typeof e.theme && e.theme || {}, i.themeMap = "object" == typeof e.themeMap && e.themeMap || E, i.utils = "object" == typeof e.utils && e.utils || {};
+  const o = new Set(e.passthru ? [...e.passthru, "as", "className"] : ["as", "className"]),
+        l = i.prefix = e.prefix || "sx";
+  i.insertionMethod = e.insertionMethod || "prepend";
+  const s = ("function" == typeof i.insertionMethod ? i.insertionMethod : j)(i),
+        d = "03kze",
+        g = B(i),
+        p = new x(),
+        m = new x(),
+        h = new x(),
+        u = new x(),
+        f = new x([p, m, h, u]);
+  let b = "";
+
+  const S = () => {
+    const e = c(f).join("");
+    b !== e && s(b = e);
+  },
+        k = (e, t) => {
+    t = "object" == typeof e && e || Object(t);
+    const n = "root" !== (e = "string" == typeof e ? e : ""),
+          i = (n ? "." : ":root,.") + (e = n && e || R(l, t)),
+          o = a(r(null), "className", {
+      className: e,
+      selector: i
+    }),
+          s = {},
+          c = s[i] = {};
+
+    for (const e in t) {
+      o[e] = r(null);
+
+      for (const n in t[e]) {
+        let r = String(t[e][n]);
+        r.includes("$") && (r = r.replace(/\$([$\w-]+)/g, (t, n) => n.includes("$") ? t : "$" + e + t));
+        const i = o[e][n] = new C(r, n, e, "sx" === l ? "" : l);
+        c[i.variable] = i.value;
+      }
+    }
+
+    const p = e === l + d ? "" : g(s);
+    return a(o, "className", {
+      get className() {
+        const {
+          hasChanged: t
+        } = m;
+        return m.add(p), t() && S(), e;
+      },
+
+      selector: i
+    });
+  },
+        I = (e, t = "") => {
+    const n = new x(),
+          i = new x();
+
+    for (const t in e) if (e[t] !== Object(e[t]) || y(e[t]).length) {
+      const r = g({
+        [t]: e[t]
+      });
+      ("@import" === t ? n : i).add(r);
+    }
+
+    const o = a(r(null), "name", {
+      name: t
+    }),
+          l = a(() => {
+      let e = p.hasChanged,
+          t = h.hasChanged;
+      return n.forEach(e => {
+        p.add(e);
+      }), i.forEach(e => {
+        h.add(e);
+      }), (e() || t()) && S(), o;
+    }, "name", {
+      get name() {
+        return String(l());
+      }
+
+    });
+    return l;
+  },
+        w = e => {
+    const t = new x(),
+          n = new T(),
+          i = new x(),
+          o = new x([t, n, i]);
+    let {
+      variants: a,
+      compoundVariants: s,
+      defaultVariants: c,
+      ...p
+    } = e;
+    c = Object(c);
+    const m = R(l, e),
+          h = "." + m,
+          f = m === l + d ? "" : g({
+      [h]: p
+    });
+    u.add(o);
+    const b = r(null),
+          S = [],
+          k = [];
+
+    for (const e in a) for (const t in a[e]) {
+      const n = a[e][t];
+      k.push({
+        [e]: t,
+        css: n
+      });
+    }
+
+    k.push(...(s || []));
+
+    for (const e in k) {
+      const {
+        css: t,
+        ...i
+      } = k[e],
+            o = y(i),
+            a = o.length;
+
+      for (const e of o) b[e] = b[e] || r(null), b[e][i[e]] = !0;
+
+      const l = (e, r) => {
+        e = { ...e
+        };
+
+        for (const t in r) void 0 !== e[t] || Object(b[t])[e[t]] || (e[t] = r[t]);
+
+        const l = new Set();
+
+        if (o.length && o.every(t => {
+          const n = e[t],
+                r = String(i[t]);
+          if (r === String(n)) return !0;
+          if (n === Object(n)) for (const e in n) if (r == String(n[e]) && 64 === e.charCodeAt(0)) return l.add(e), !0;
+        })) {
+          let e = Object(t);
+
+          for (const t of l) e = {
+            [t]: e
+          };
+
+          const r = m + R("", e) + "--" + (1 === a ? o[0] + "-" + i[o[0]] : "c" + a),
+                s = g({
+            ["." + r]: e
+          });
+          return (n[a - 1] || (n[a - 1] = new x())).add(s), r;
+        }
+      };
+
+      S.push(l);
+    }
+
+    return {
+      apply(e, r, i) {
+        const a = t.hasChanged,
+              l = n.hasChanged;
+
+        if (t.add(f), e) {
+          r.add(m);
+
+          for (const t of S) {
+            const n = t(e, i);
+            n && r.add(n);
+          }
+        }
+
+        if (a() || l()) return u.add(o), !0;
+      },
+
+      inline(e, t) {
+        const n = R("-", e),
+              r = m === "-" + n ? "" : g({
+          [h + n]: e
+        });
+        t.add(m + n);
+        const {
+          hasChanged: o
+        } = i;
+        return r && i.add(r), o();
+      },
+
+      className: m,
+      defaultVariants: c,
+      selector: h,
+      variantProps: b
+    };
+  },
+        z = k("root", i.theme),
+        W = a({
+    css: (...e) => {
+      let i,
+          l = [],
+          s = r(null);
+
+      for (const r of e) if (r === Object(r)) if (t in r) for (const e of r[t]) l.push(e), n(s, e.defaultVariants);else l.push(i = w(r)), n(s, i.defaultVariants);
+
+      return i || l.push(i = w({})), a(e => {
+        const {
+          css: n,
+          ...d
+        } = Object(e),
+              g = new Set();
+        let p,
+            m = !1;
+
+        for (const e of l) m = e.apply(d, g, s) || m;
+
+        n === Object(n) && (p = i.inline(n, g)), (m || p) && S();
+
+        for (const e in i.variantProps) o.has(e) || delete d[e];
+
+        void 0 !== d.className && String(d.className).split(/\s+/).forEach(g.add, g);
+        const h = c(g);
+        return d.className = h.join(" "), a(r(null), "className", {
+          get [t]() {
+            return l;
+          },
+
+          className: d.className,
+          props: d,
+          selector: i.selector
+        });
+      }, "className", {
+        get [t]() {
+          return l;
+        },
+
+        get className() {
+          return i.apply() && S(), i.className;
+        },
+
+        selector: i.selector
+      });
+    },
+    config: i,
+    global: I,
+    keyframes: e => {
+      const t = R(l, e);
+      return I({
+        ["@keyframes " + t]: e
+      }, t);
+    },
+    prefix: l,
+    reset: () => (p.clear(), m.clear(), h.clear(), u.clear(), z.className, W),
+    theme: n(k, z),
+
+    get cssText() {
+      return b;
+    },
+
+    getCssString: () => b
+  }, "cssText", {});
+
+  return W;
+},
+    $ = Symbol.for("react.element"),
+    N = Symbol.for("react.forward_ref"),
+    O = e => {
+  const r = v(e);
+  return n(r, {
+    styled: (...e) => {
+      const n = e.map(e => Object(e).type ? e.type : e).find(e => e) || "span",
+            i = r.css(...e.filter(e => t in Object(e) || e && "object" == typeof e && !e.$$typeof));
+      return Object.setPrototypeOf({
+        render(e, t) {
+          const {
+            props: {
+              as: r = n,
+              ...o
+            },
+            ...a
+          } = i(e);
+          return {
+            constructor: void 0,
+            $$typeof: $,
+            props: o,
+            ref: t,
+            type: r,
+            __v: 0
+          };
+        },
+
+        $$typeof: N,
+        [t]: i[t],
+        [Symbol.toPrimitive]: () => i.selector,
+        toString: () => i.selector,
+
+        get className() {
+          return i.className;
+        },
+
+        get selector() {
+          return i.selector;
+        },
+
+        type: n
+      }, Object(n));
+    }
+  });
+},
+    L = () => L.config || (L.config = O()),
+    D = (...e) => L().global(...e); //# sourceMappingUrl=index.map
+
+/**
+ * The default humix theme
+ */
+
+
+const defaultTheme = O({
+  prefix: 'humix-',
+  theme: {
+    fonts: {
+      body: '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto'
+    },
+    colors: {
+      primary100: 'hsl(170, 86%, 62%)',
+      primary200: 'hsl(170, 86%, 80%)',
+      secondary100: 'hsl(359, 93%, 70%)',
+      secondary200: 'hsl(359, 93%, 60%)',
+      focusOutline: 'hsl(300, 47%, 75%)',
+      darkText: '#2F2F2F',
+      lightText: '#F7F3F5'
+    },
+    space: {
+      1: '0px',
+      2: '2px',
+      3: '4px',
+      4: '8px',
+      5: '16px',
+      6: '32px',
+      7: '64px',
+      8: '128px',
+      9: '256px',
+      10: '512px'
+    },
+    fontSizes: {
+      xs: '0.75rem',
+      s: '0.875rem',
+      m: '1rem',
+      l: '1.25rem',
+      xl: '1.5rem',
+      xxl: '2rem',
+      huge: '3rem',
+      jumbo: '4rem' // jumbo
+
+    },
+    fontWeights: {},
+    lineHeights: {
+      solid: 1,
+      heading: 1.25,
+      body: 1.5
+    },
+    letterSpacings: {},
+    sizes: {
+      maxWidth: 1440,
+      interactiveElementHeight: '40px',
+      interactiveElementMinWidth: '100px'
+    },
+    borderWidths: {
+      1: '0px',
+      2: '1px',
+      3: '2px',
+      4: '4px'
+    },
+    borderStyles: {
+      1: 'none',
+      2: 'solid'
+    },
+    // Radius
+    radii: {
+      none: '0px',
+      slight: '5px',
+      rounded: '9px',
+      pill: '9999px' // rounded
+
+    },
+    shadows: {
+      primaryFocus: '0px 1px 0px 0px rgba(0,0,0,1), 0px 0px 8px hsl(170, 86%, 62%)',
+      secondaryFocus: '0px 1px 0px 0px rgba(0,0,0,1), 0px 0px 8px hsl(359, 93%, 52%)',
+      primaryBoxBottomRight: '10px 10px 1px 1px hsl(170, 86%, 62%)',
+      secondaryBoxBottomRight: '10px 10px 1px 1px hsl(359, 93%, 52%)',
+      primaryBoxBottomLeft: '-10px 10px 1px 1px hsl(170, 86%, 62%)',
+      secondaryBoxBottomLeft: '-10px 10px 1px 1px hsl(359, 93%, 52%)',
+      primaryBoxTopRight: '10px -10px 1px 1px hsl(170, 86%, 62%)',
+      secondaryBoxTopRight: '10px -10px 1px 1px hsl(359, 93%, 52%)',
+      primaryBoxTopLeft: '-10px -10px 1px 1px hsl(170, 86%, 62%)',
+      secondaryBoxTopLeft: '-10px -10px 1px 1px hsl(359, 93%, 52%)'
+    },
+    zIndices: {
+      neutral: 0,
+      above: 100,
+      below: -100,
+      onTop: 999999999
+    },
+    transitions: {}
+  },
+  media: {
+    sm: '(min-width: 640px)',
+    md: '(min-width: 768px)',
+    lg: '(min-width: 1024px)'
+  }
+});
+const {
+  styled,
+  getCssString,
+  css,
+  theme
+} = defaultTheme;
+/**
+ * An example custom theme with pastel colors.
+ */
+
+const pastelTheme = theme({
+  colors: {
+    primary100: 'hsl(110, 100%, 87%)',
+    primary200: 'hsl(110, 100%, 80%)',
+    secondary100: 'hsl(62, 100%, 86%)',
+    secondary200: 'hsl(62, 100%, 76%)',
+    darkText: '#001F52',
+    lightText: '#FFFFFC'
+  }
+});
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+function toVal(mix) {
+  var k,
+      y,
+      str = '';
+
+  if (typeof mix === 'string' || typeof mix === 'number') {
+    str += mix;
+  } else if (typeof mix === 'object') {
+    if (Array.isArray(mix)) {
+      for (k = 0; k < mix.length; k++) {
+        if (mix[k]) {
+          if (y = toVal(mix[k])) {
+            str && (str += ' ');
+            str += y;
+          }
+        }
+      }
+    } else {
+      for (k in mix) {
+        if (mix[k]) {
+          str && (str += ' ');
+          str += k;
+        }
+      }
+    }
+  }
+
+  return str;
+}
+
+function _clsx() {
+  var i = 0,
+      tmp,
+      x,
+      str = '';
+
+  while (i < arguments.length) {
+    if (tmp = arguments[i++]) {
+      if (x = toVal(tmp)) {
+        str && (str += ' ');
+        str += x;
+      }
+    }
+  }
+
+  return str;
+} // During SSR, React emits a warning when calling useLayoutEffect.
+// Since neither useLayoutEffect nor useEffect run on the server,
+// we can suppress this by replace it with a noop on the server.
+
+
+const useLayoutEffect = typeof window !== 'undefined' ? (react__WEBPACK_IMPORTED_MODULE_0___default().useLayoutEffect) : () => {};
+let $f8b5fdd96fb429d7102983f777c41307$var$idsUpdaterMap = new Map();
+/**
+ * Merges two ids.
+ * Different ids will trigger a side-effect and re-render components hooked up with `useId`.
+ */
+
+function mergeIds(idA, idB) {
+  if (idA === idB) {
+    return idA;
+  }
+
+  let setIdA = $f8b5fdd96fb429d7102983f777c41307$var$idsUpdaterMap.get(idA);
+
+  if (setIdA) {
+    setIdA(idB);
+    return idB;
+  }
+
+  let setIdB = $f8b5fdd96fb429d7102983f777c41307$var$idsUpdaterMap.get(idB);
+
+  if (setIdB) {
+    setIdB(idA);
+    return idA;
+  }
+
+  return idB;
+}
+/*
+ * Copyright 2020 Adobe. All rights reserved.
+ * This file is licensed to you under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License. You may obtain a copy
+ * of the License at http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under
+ * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+ * OF ANY KIND, either express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
+ */
+
+/**
+ * Calls all functions in the order they were chained with the same arguments.
+ */
+
+
+function chain() {
+  for (var _len = arguments.length, callbacks = new Array(_len), _key = 0; _key < _len; _key++) {
+    callbacks[_key] = arguments[_key];
+  }
+
+  return function () {
+    for (let callback of callbacks) {
+      if (typeof callback === 'function') {
+        callback(...arguments);
+      }
+    }
+  };
+}
+/**
+ * Merges multiple props objects together. Event handlers are chained,
+ * classNames are combined, and ids are deduplicated - different ids
+ * will trigger a side-effect and re-render components hooked up with `useId`.
+ * For all other props, the last prop object overrides all previous ones.
+ * @param args - Multiple sets of props to merge together.
+ */
+
+
+function mergeProps() {
+  let result = {};
+
+  for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+    args[_key] = arguments[_key];
+  }
+
+  for (let props of args) {
+    for (let key in result) {
+      // Chain events
+      if (/^on[A-Z]/.test(key) && typeof result[key] === 'function' && typeof props[key] === 'function') {
+        result[key] = chain(result[key], props[key]); // Merge classnames, sometimes classNames are empty string which eval to false, so we just need to do a type check
+      } else if (key === 'className' && typeof result.className === 'string' && typeof props.className === 'string') {
+        result[key] = _clsx(result.className, props.className);
+      } else if (key === 'UNSAFE_className' && typeof result.UNSAFE_className === 'string' && typeof props.UNSAFE_className === 'string') {
+        result[key] = _clsx(result.UNSAFE_className, props.UNSAFE_className);
+      } else if (key === 'id' && result.id && props.id) {
+        result.id = mergeIds(result.id, props.id); // Override others
+      } else {
+        result[key] = props[key] !== undefined ? props[key] : result[key];
+      }
+    } // Add props from b that are not in a
+
+
+    for (let key in props) {
+      if (result[key] === undefined) {
+        result[key] = props[key];
+      }
+    }
+  }
+
+  return result;
+}
+
+const $f6a965352cabf1a7c37e8c1337e5eab$var$DOMPropNames = new Set(['id']);
+const $f6a965352cabf1a7c37e8c1337e5eab$var$labelablePropNames = new Set(['aria-label', 'aria-labelledby', 'aria-describedby', 'aria-details']);
+const $f6a965352cabf1a7c37e8c1337e5eab$var$propRe = /^(data-.*)$/;
+/**
+ * Filters out all props that aren't valid DOM props or defined via override prop obj.
+ * @param props - The component props to be filtered.
+ * @param opts - Props to override.
+ */
+
+function filterDOMProps(props, opts) {
+  if (opts === void 0) {
+    opts = {};
+  }
+
+  let {
+    labelable,
+    propNames
+  } = opts;
+  let filteredProps = {};
+
+  for (const prop in props) {
+    if (Object.prototype.hasOwnProperty.call(props, prop) && ($f6a965352cabf1a7c37e8c1337e5eab$var$DOMPropNames.has(prop) || labelable && $f6a965352cabf1a7c37e8c1337e5eab$var$labelablePropNames.has(prop) || (propNames == null ? void 0 : propNames.has(prop)) || $f6a965352cabf1a7c37e8c1337e5eab$var$propRe.test(prop))) {
+      filteredProps[prop] = props[prop];
+    }
+  }
+
+  return filteredProps;
+} // Currently necessary for Safari and old Edge:
+// https://caniuse.com/#feat=mdn-api_htmlelement_focus_preventscroll_option
+// See https://bugs.webkit.org/show_bug.cgi?id=178583
+//
+// Original licensing for the following methods can be found in the
+// NOTICE file in the root directory of this source tree.
+// See https://github.com/calvellido/focus-options-polyfill
+
+
+function focusWithoutScrolling(element) {
+  if ($bc7c9c3af78f5218ff72cecce15730$var$supportsPreventScroll()) {
+    element.focus({
+      preventScroll: true
+    });
+  } else {
+    let scrollableElements = $bc7c9c3af78f5218ff72cecce15730$var$getScrollableElements(element);
+    element.focus();
+    $bc7c9c3af78f5218ff72cecce15730$var$restoreScrollPosition(scrollableElements);
+  }
+}
+
+let $bc7c9c3af78f5218ff72cecce15730$var$supportsPreventScrollCached = null;
+
+function $bc7c9c3af78f5218ff72cecce15730$var$supportsPreventScroll() {
+  if ($bc7c9c3af78f5218ff72cecce15730$var$supportsPreventScrollCached == null) {
+    $bc7c9c3af78f5218ff72cecce15730$var$supportsPreventScrollCached = false;
+
+    try {
+      var focusElem = document.createElement('div');
+      focusElem.focus({
+        get preventScroll() {
+          $bc7c9c3af78f5218ff72cecce15730$var$supportsPreventScrollCached = true;
+          return true;
+        }
+
+      });
+    } catch (e) {// Ignore
+    }
+  }
+
+  return $bc7c9c3af78f5218ff72cecce15730$var$supportsPreventScrollCached;
+}
+
+function $bc7c9c3af78f5218ff72cecce15730$var$getScrollableElements(element) {
+  var parent = element.parentNode;
+  var scrollableElements = [];
+  var rootScrollingElement = document.scrollingElement || document.documentElement;
+
+  while (parent instanceof HTMLElement && parent !== rootScrollingElement) {
+    if (parent.offsetHeight < parent.scrollHeight || parent.offsetWidth < parent.scrollWidth) {
+      scrollableElements.push({
+        element: parent,
+        scrollTop: parent.scrollTop,
+        scrollLeft: parent.scrollLeft
+      });
+    }
+
+    parent = parent.parentNode;
+  }
+
+  if (rootScrollingElement instanceof HTMLElement) {
+    scrollableElements.push({
+      element: rootScrollingElement,
+      scrollTop: rootScrollingElement.scrollTop,
+      scrollLeft: rootScrollingElement.scrollLeft
+    });
+  }
+
+  return scrollableElements;
+}
+
+function $bc7c9c3af78f5218ff72cecce15730$var$restoreScrollPosition(scrollableElements) {
+  for (let {
+    element,
+    scrollTop,
+    scrollLeft
+  } of scrollableElements) {
+    element.scrollTop = scrollTop;
+    element.scrollLeft = scrollLeft;
+  }
+} // mapped to a set of CSS properties that are transitioning for that element.
+// This is necessary rather than a simple count of transitions because of browser
+// bugs, e.g. Chrome sometimes fires both transitionend and transitioncancel rather
+// than one or the other. So we need to track what's actually transitioning so that
+// we can ignore these duplicate events.
+
+
+let $b3e8d5c5f32fa26afa6df1b81f09b6b8$var$transitionsByElement = new Map(); // A list of callbacks to call once there are no transitioning elements.
+
+let $b3e8d5c5f32fa26afa6df1b81f09b6b8$var$transitionCallbacks = new Set();
+
+function $b3e8d5c5f32fa26afa6df1b81f09b6b8$var$setupGlobalEvents() {
+  if (typeof window === 'undefined') {
+    return;
+  }
+
+  let onTransitionStart = e => {
+    // Add the transitioning property to the list for this element.
+    let transitions = $b3e8d5c5f32fa26afa6df1b81f09b6b8$var$transitionsByElement.get(e.target);
+
+    if (!transitions) {
+      transitions = new Set();
+      $b3e8d5c5f32fa26afa6df1b81f09b6b8$var$transitionsByElement.set(e.target, transitions); // The transitioncancel event must be registered on the element itself, rather than as a global
+      // event. This enables us to handle when the node is deleted from the document while it is transitioning.
+      // In that case, the cancel event would have nowhere to bubble to so we need to handle it directly.
+
+      e.target.addEventListener('transitioncancel', onTransitionEnd);
+    }
+
+    transitions.add(e.propertyName);
+  };
+
+  let onTransitionEnd = e => {
+    // Remove property from list of transitioning properties.
+    let properties = $b3e8d5c5f32fa26afa6df1b81f09b6b8$var$transitionsByElement.get(e.target);
+
+    if (!properties) {
+      return;
+    }
+
+    properties.delete(e.propertyName); // If empty, remove transitioncancel event, and remove the element from the list of transitioning elements.
+
+    if (properties.size === 0) {
+      e.target.removeEventListener('transitioncancel', onTransitionEnd);
+      $b3e8d5c5f32fa26afa6df1b81f09b6b8$var$transitionsByElement.delete(e.target);
+    } // If no transitioning elements, call all of the queued callbacks.
+
+
+    if ($b3e8d5c5f32fa26afa6df1b81f09b6b8$var$transitionsByElement.size === 0) {
+      for (let cb of $b3e8d5c5f32fa26afa6df1b81f09b6b8$var$transitionCallbacks) {
+        cb();
+      }
+
+      $b3e8d5c5f32fa26afa6df1b81f09b6b8$var$transitionCallbacks.clear();
+    }
+  };
+
+  document.body.addEventListener('transitionrun', onTransitionStart);
+  document.body.addEventListener('transitionend', onTransitionEnd);
+}
+
+if (typeof document !== 'undefined') {
+  if (document.readyState !== 'loading') {
+    $b3e8d5c5f32fa26afa6df1b81f09b6b8$var$setupGlobalEvents();
+  } else {
+    document.addEventListener('DOMContentLoaded', $b3e8d5c5f32fa26afa6df1b81f09b6b8$var$setupGlobalEvents);
+  }
+}
+
+function runAfterTransition(fn) {
+  // Wait one frame to see if an animation starts, e.g. a transition on mount.
+  requestAnimationFrame(() => {
+    // If no transitions are running, call the function immediately.
+    // Otherwise, add it to a list of callbacks to run at the end of the animation.
+    if ($b3e8d5c5f32fa26afa6df1b81f09b6b8$var$transitionsByElement.size === 0) {
+      fn();
+    } else {
+      $b3e8d5c5f32fa26afa6df1b81f09b6b8$var$transitionCallbacks.add(fn);
+    }
+  });
+}
+
+function useGlobalListeners() {
+  let globalListeners = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(new Map());
+  let addGlobalListener = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((eventTarget, type, listener, options) => {
+    globalListeners.current.set(listener, {
+      type,
+      eventTarget,
+      options
+    });
+    eventTarget.addEventListener(type, listener, options);
+  }, []);
+  let removeGlobalListener = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((eventTarget, type, listener, options) => {
+    eventTarget.removeEventListener(type, listener, options);
+    globalListeners.current.delete(listener);
+  }, []);
+  let removeAllGlobalListeners = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(() => {
+    globalListeners.current.forEach((value, key) => {
+      removeGlobalListener(value.eventTarget, value.type, key, value.options);
+    });
+  }, [removeGlobalListener]); // eslint-disable-next-line arrow-body-style
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    return removeAllGlobalListeners;
+  }, [removeAllGlobalListeners]);
+  return {
+    addGlobalListener,
+    removeGlobalListener,
+    removeAllGlobalListeners
+  };
+} // Syncs ref from context with ref passed to hook
+
+
+function useSyncRef(context, ref) {
+  useLayoutEffect(() => {
+    if (context && context.ref) {
+      context.ref.current = ref.current;
+      return () => {
+        context.ref.current = null;
+      };
+    }
+  }, [context, ref]);
+}
+
+function $b0986c1243f71db8e992f67117a1ed9$var$testPlatform(re) {
+  return typeof window !== 'undefined' && window.navigator != null ? re.test(window.navigator.platform) : false;
+}
+
+function isMac() {
+  return $b0986c1243f71db8e992f67117a1ed9$var$testPlatform(/^Mac/);
+}
+
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+let $e17c9db826984f8ab8e5d837bf0b8$var$state = 'default';
+let $e17c9db826984f8ab8e5d837bf0b8$var$savedUserSelect = '';
+
+function $e17c9db826984f8ab8e5d837bf0b8$export$disableTextSelection() {
+  if ($e17c9db826984f8ab8e5d837bf0b8$var$state === 'default') {
+    $e17c9db826984f8ab8e5d837bf0b8$var$savedUserSelect = document.documentElement.style.webkitUserSelect;
+    document.documentElement.style.webkitUserSelect = 'none';
+  }
+
+  $e17c9db826984f8ab8e5d837bf0b8$var$state = 'disabled';
+}
+
+function $e17c9db826984f8ab8e5d837bf0b8$export$restoreTextSelection() {
+  // If the state is already default, there's nothing to do.
+  // If it is restoring, then there's no need to queue a second restore.
+  if ($e17c9db826984f8ab8e5d837bf0b8$var$state !== 'disabled') {
+    return;
+  }
+
+  $e17c9db826984f8ab8e5d837bf0b8$var$state = 'restoring'; // There appears to be a delay on iOS where selection still might occur
+  // after pointer up, so wait a bit before removing user-select.
+
+  setTimeout(() => {
+    // Wait for any CSS transitions to complete so we don't recompute style
+    // for the whole page in the middle of the animation and cause jank.
+    runAfterTransition(() => {
+      // Avoid race conditions
+      if ($e17c9db826984f8ab8e5d837bf0b8$var$state === 'restoring') {
+        if (document.documentElement.style.webkitUserSelect === 'none') {
+          document.documentElement.style.webkitUserSelect = $e17c9db826984f8ab8e5d837bf0b8$var$savedUserSelect || '';
+        }
+
+        $e17c9db826984f8ab8e5d837bf0b8$var$savedUserSelect = '';
+        $e17c9db826984f8ab8e5d837bf0b8$var$state = 'default';
+      }
+    });
+  }, 300);
+}
+/*
+ * Copyright 2020 Adobe. All rights reserved.
+ * This file is licensed to you under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License. You may obtain a copy
+ * of the License at http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under
+ * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+ * OF ANY KIND, either express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
+ */
+// Original licensing for the following method can be found in the
+// NOTICE file in the root directory of this source tree.
+// See https://github.com/facebook/react/blob/3c713d513195a53788b3f8bb4b70279d68b15bcc/packages/react-interactions/events/src/dom/shared/index.js#L74-L87
+// Keyboards, Assistive Technologies, and element.click() all produce a "virtual"
+// click event. This is a method of inferring such clicks. Every browser except
+// IE 11 only sets a zero value of "detail" for click events that are "virtual".
+// However, IE 11 uses a zero value for all click events. For IE 11 we rely on
+// the quirk that it produces click events that are of type PointerEvent, and
+// where only the "virtual" click lacks a pointerType field.
+
+
+function $f67ef9f1b8ed09b4b00fd0840cd8b94b$export$isVirtualClick(event) {
+  // JAWS/NVDA with Firefox.
+  if (event.mozInputSource === 0 && event.isTrusted) {
+    return true;
+  }
+
+  return event.detail === 0 && !event.pointerType;
+}
+
+const $a3ff51240de6f955c79cf17a88e349$export$PressResponderContext = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createContext(null);
+
+$a3ff51240de6f955c79cf17a88e349$export$PressResponderContext.displayName = 'PressResponderContext';
+
+function $ffc54430b1dbeee65879852feaaff07d$var$usePressResponderContext(props) {
+  // Consume context from <PressResponder> and merge with props.
+  let context = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)($a3ff51240de6f955c79cf17a88e349$export$PressResponderContext);
+
+  if (context) {
+    let {
+      register
+    } = context,
+        contextProps = _objectWithoutPropertiesLoose(context, ["register"]);
+
+    props = mergeProps(contextProps, props);
+    register();
+  }
+
+  useSyncRef(context, props.ref);
+  return props;
+}
+/**
+ * Handles press interactions across mouse, touch, keyboard, and screen readers.
+ * It normalizes behavior across browsers and platforms, and handles many nuances
+ * of dealing with pointer and keyboard events.
+ */
+
+
+function usePress(props) {
+  let _usePressResponderCon = $ffc54430b1dbeee65879852feaaff07d$var$usePressResponderContext(props),
+      {
+    onPress,
+    onPressChange,
+    onPressStart,
+    onPressEnd,
+    onPressUp,
+    isDisabled,
+    isPressed: isPressedProp,
+    preventFocusOnPress
+  } = _usePressResponderCon,
+      domProps = _objectWithoutPropertiesLoose(_usePressResponderCon, ["onPress", "onPressChange", "onPressStart", "onPressEnd", "onPressUp", "isDisabled", "isPressed", "preventFocusOnPress", "ref"]);
+
+  let propsRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  propsRef.current = {
+    onPress,
+    onPressChange,
+    onPressStart,
+    onPressEnd,
+    onPressUp,
+    isDisabled
+  };
+  let {
+    0: isPressed,
+    1: setPressed
+  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  let ref = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)({
+    isPressed: false,
+    ignoreEmulatedMouseEvents: false,
+    ignoreClickAfterPress: false,
+    didFirePressStart: false,
+    activePointerId: null,
+    target: null,
+    isOverTarget: false,
+    pointerType: null
+  });
+  let {
+    addGlobalListener,
+    removeAllGlobalListeners
+  } = useGlobalListeners();
+  let pressProps = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => {
+    let state = ref.current;
+
+    let triggerPressStart = (originalEvent, pointerType) => {
+      let {
+        onPressStart,
+        onPressChange,
+        isDisabled
+      } = propsRef.current;
+
+      if (isDisabled || state.didFirePressStart) {
+        return;
+      }
+
+      if (onPressStart) {
+        onPressStart({
+          type: 'pressstart',
+          pointerType,
+          target: originalEvent.currentTarget,
+          shiftKey: originalEvent.shiftKey,
+          metaKey: originalEvent.metaKey,
+          ctrlKey: originalEvent.ctrlKey
+        });
+      }
+
+      if (onPressChange) {
+        onPressChange(true);
+      }
+
+      state.didFirePressStart = true;
+      setPressed(true);
+    };
+
+    let triggerPressEnd = function triggerPressEnd(originalEvent, pointerType, wasPressed) {
+      if (wasPressed === void 0) {
+        wasPressed = true;
+      }
+
+      let {
+        onPressEnd,
+        onPressChange,
+        onPress,
+        isDisabled
+      } = propsRef.current;
+
+      if (!state.didFirePressStart) {
+        return;
+      }
+
+      state.ignoreClickAfterPress = true;
+      state.didFirePressStart = false;
+
+      if (onPressEnd) {
+        onPressEnd({
+          type: 'pressend',
+          pointerType,
+          target: originalEvent.currentTarget,
+          shiftKey: originalEvent.shiftKey,
+          metaKey: originalEvent.metaKey,
+          ctrlKey: originalEvent.ctrlKey
+        });
+      }
+
+      if (onPressChange) {
+        onPressChange(false);
+      }
+
+      setPressed(false);
+
+      if (onPress && wasPressed && !isDisabled) {
+        onPress({
+          type: 'press',
+          pointerType,
+          target: originalEvent.currentTarget,
+          shiftKey: originalEvent.shiftKey,
+          metaKey: originalEvent.metaKey,
+          ctrlKey: originalEvent.ctrlKey
+        });
+      }
+    };
+
+    let triggerPressUp = (originalEvent, pointerType) => {
+      let {
+        onPressUp,
+        isDisabled
+      } = propsRef.current;
+
+      if (isDisabled) {
+        return;
+      }
+
+      if (onPressUp) {
+        onPressUp({
+          type: 'pressup',
+          pointerType,
+          target: originalEvent.currentTarget,
+          shiftKey: originalEvent.shiftKey,
+          metaKey: originalEvent.metaKey,
+          ctrlKey: originalEvent.ctrlKey
+        });
+      }
+    };
+
+    let cancel = e => {
+      if (state.isPressed) {
+        if (state.isOverTarget) {
+          triggerPressEnd($ffc54430b1dbeee65879852feaaff07d$var$createEvent(state.target, e), state.pointerType, false);
+        }
+
+        state.isPressed = false;
+        state.isOverTarget = false;
+        state.activePointerId = null;
+        state.pointerType = null;
+        removeAllGlobalListeners();
+        $e17c9db826984f8ab8e5d837bf0b8$export$restoreTextSelection();
+      }
+    };
+
+    let pressProps = {
+      onKeyDown(e) {
+        if ($ffc54430b1dbeee65879852feaaff07d$var$isValidKeyboardEvent(e.nativeEvent)) {
+          e.preventDefault();
+          e.stopPropagation(); // If the event is repeating, it may have started on a different element
+          // after which focus moved to the current element. Ignore these events and
+          // only handle the first key down event.
+
+          if (!state.isPressed && !e.repeat) {
+            state.target = e.currentTarget;
+            state.isPressed = true;
+            triggerPressStart(e, 'keyboard'); // Focus may move before the key up event, so register the event on the document
+            // instead of the same element where the key down event occurred.
+
+            addGlobalListener(document, 'keyup', onKeyUp, false);
+          }
+        }
+      },
+
+      onKeyUp(e) {
+        if ($ffc54430b1dbeee65879852feaaff07d$var$isValidKeyboardEvent(e.nativeEvent) && !e.repeat) {
+          triggerPressUp($ffc54430b1dbeee65879852feaaff07d$var$createEvent(state.target, e), 'keyboard');
+        }
+      },
+
+      onClick(e) {
+        if (e && e.button === 0) {
+          e.stopPropagation();
+
+          if (isDisabled) {
+            e.preventDefault();
+          } // If triggered from a screen reader or by using element.click(),
+          // trigger as if it were a keyboard click.
+
+
+          if (!state.ignoreClickAfterPress && !state.ignoreEmulatedMouseEvents && $f67ef9f1b8ed09b4b00fd0840cd8b94b$export$isVirtualClick(e.nativeEvent)) {
+            // Ensure the element receives focus (VoiceOver on iOS does not do this)
+            if (!isDisabled && !preventFocusOnPress) {
+              focusWithoutScrolling(e.currentTarget);
+            }
+
+            triggerPressStart(e, 'virtual');
+            triggerPressUp(e, 'virtual');
+            triggerPressEnd(e, 'virtual');
+          }
+
+          state.ignoreEmulatedMouseEvents = false;
+          state.ignoreClickAfterPress = false;
+        }
+      }
+
+    };
+
+    let onKeyUp = e => {
+      if (state.isPressed && $ffc54430b1dbeee65879852feaaff07d$var$isValidKeyboardEvent(e)) {
+        e.preventDefault();
+        e.stopPropagation();
+        state.isPressed = false;
+        triggerPressEnd($ffc54430b1dbeee65879852feaaff07d$var$createEvent(state.target, e), 'keyboard', e.target === state.target);
+        removeAllGlobalListeners(); // If the target is a link, trigger the click method to open the URL,
+        // but defer triggering pressEnd until onClick event handler.
+
+        if (e.target === state.target && $ffc54430b1dbeee65879852feaaff07d$var$isHTMLAnchorLink(state.target) || state.target.getAttribute('role') === 'link') {
+          state.target.click();
+        }
+      }
+    };
+
+    if (typeof PointerEvent !== 'undefined') {
+      pressProps.onPointerDown = e => {
+        // Only handle left clicks
+        if (e.button !== 0) {
+          return;
+        } // Due to browser inconsistencies, especially on mobile browsers, we prevent
+        // default on pointer down and handle focusing the pressable element ourselves.
+
+
+        if ($ffc54430b1dbeee65879852feaaff07d$var$shouldPreventDefault(e.target)) {
+          e.preventDefault();
+        } // iOS safari fires pointer events from VoiceOver (but only when outside an iframe...)
+        // https://bugs.webkit.org/show_bug.cgi?id=222627
+
+
+        state.pointerType = $ffc54430b1dbeee65879852feaaff07d$var$isVirtualPointerEvent(e.nativeEvent) ? 'virtual' : e.pointerType;
+        e.stopPropagation();
+
+        if (!state.isPressed) {
+          state.isPressed = true;
+          state.isOverTarget = true;
+          state.activePointerId = e.pointerId;
+          state.target = e.currentTarget;
+
+          if (!isDisabled && !preventFocusOnPress) {
+            focusWithoutScrolling(e.currentTarget);
+          }
+
+          $e17c9db826984f8ab8e5d837bf0b8$export$disableTextSelection();
+          triggerPressStart(e, state.pointerType);
+          addGlobalListener(document, 'pointermove', onPointerMove, false);
+          addGlobalListener(document, 'pointerup', onPointerUp, false);
+          addGlobalListener(document, 'pointercancel', onPointerCancel, false);
+        }
+      };
+
+      pressProps.onMouseDown = e => {
+        if (e.button === 0) {
+          // Chrome and Firefox on touch Windows devices require mouse down events
+          // to be canceled in addition to pointer events, or an extra asynchronous
+          // focus event will be fired.
+          if ($ffc54430b1dbeee65879852feaaff07d$var$shouldPreventDefault(e.target)) {
+            e.preventDefault();
+          }
+
+          e.stopPropagation();
+        }
+      };
+
+      pressProps.onPointerUp = e => {
+        // Only handle left clicks
+        // Safari on iOS sometimes fires pointerup events, even
+        // when the touch isn't over the target, so double check.
+        if (e.button === 0 && $ffc54430b1dbeee65879852feaaff07d$var$isOverTarget(e, e.currentTarget)) {
+          triggerPressUp(e, state.pointerType);
+        }
+      }; // Safari on iOS < 13.2 does not implement pointerenter/pointerleave events correctly.
+      // Use pointer move events instead to implement our own hit testing.
+      // See https://bugs.webkit.org/show_bug.cgi?id=199803
+
+
+      let onPointerMove = e => {
+        if (e.pointerId !== state.activePointerId) {
+          return;
+        }
+
+        if ($ffc54430b1dbeee65879852feaaff07d$var$isOverTarget(e, state.target)) {
+          if (!state.isOverTarget) {
+            state.isOverTarget = true;
+            triggerPressStart($ffc54430b1dbeee65879852feaaff07d$var$createEvent(state.target, e), state.pointerType);
+          }
+        } else if (state.isOverTarget) {
+          state.isOverTarget = false;
+          triggerPressEnd($ffc54430b1dbeee65879852feaaff07d$var$createEvent(state.target, e), state.pointerType, false);
+        }
+      };
+
+      let onPointerUp = e => {
+        if (e.pointerId === state.activePointerId && state.isPressed && e.button === 0) {
+          if ($ffc54430b1dbeee65879852feaaff07d$var$isOverTarget(e, state.target)) {
+            triggerPressEnd($ffc54430b1dbeee65879852feaaff07d$var$createEvent(state.target, e), state.pointerType);
+          } else if (state.isOverTarget) {
+            triggerPressEnd($ffc54430b1dbeee65879852feaaff07d$var$createEvent(state.target, e), state.pointerType, false);
+          }
+
+          state.isPressed = false;
+          state.isOverTarget = false;
+          state.activePointerId = null;
+          state.pointerType = null;
+          removeAllGlobalListeners();
+          $e17c9db826984f8ab8e5d837bf0b8$export$restoreTextSelection();
+        }
+      };
+
+      let onPointerCancel = e => {
+        cancel(e);
+      };
+
+      pressProps.onDragStart = e => {
+        // Safari does not call onPointerCancel when a drag starts, whereas Chrome and Firefox do.
+        cancel(e);
+      };
+    } else {
+      pressProps.onMouseDown = e => {
+        // Only handle left clicks
+        if (e.button !== 0) {
+          return;
+        } // Due to browser inconsistencies, especially on mobile browsers, we prevent
+        // default on mouse down and handle focusing the pressable element ourselves.
+
+
+        if ($ffc54430b1dbeee65879852feaaff07d$var$shouldPreventDefault(e.target)) {
+          e.preventDefault();
+        }
+
+        e.stopPropagation();
+
+        if (state.ignoreEmulatedMouseEvents) {
+          return;
+        }
+
+        state.isPressed = true;
+        state.isOverTarget = true;
+        state.target = e.currentTarget;
+        state.pointerType = $f67ef9f1b8ed09b4b00fd0840cd8b94b$export$isVirtualClick(e.nativeEvent) ? 'virtual' : 'mouse';
+
+        if (!isDisabled && !preventFocusOnPress) {
+          focusWithoutScrolling(e.currentTarget);
+        }
+
+        triggerPressStart(e, state.pointerType);
+        addGlobalListener(document, 'mouseup', onMouseUp, false);
+      };
+
+      pressProps.onMouseEnter = e => {
+        e.stopPropagation();
+
+        if (state.isPressed && !state.ignoreEmulatedMouseEvents) {
+          state.isOverTarget = true;
+          triggerPressStart(e, state.pointerType);
+        }
+      };
+
+      pressProps.onMouseLeave = e => {
+        e.stopPropagation();
+
+        if (state.isPressed && !state.ignoreEmulatedMouseEvents) {
+          state.isOverTarget = false;
+          triggerPressEnd(e, state.pointerType, false);
+        }
+      };
+
+      pressProps.onMouseUp = e => {
+        if (!state.ignoreEmulatedMouseEvents && e.button === 0) {
+          triggerPressUp(e, state.pointerType);
+        }
+      };
+
+      let onMouseUp = e => {
+        // Only handle left clicks
+        if (e.button !== 0) {
+          return;
+        }
+
+        state.isPressed = false;
+        removeAllGlobalListeners();
+
+        if (state.ignoreEmulatedMouseEvents) {
+          state.ignoreEmulatedMouseEvents = false;
+          return;
+        }
+
+        if ($ffc54430b1dbeee65879852feaaff07d$var$isOverTarget(e, state.target)) {
+          triggerPressEnd($ffc54430b1dbeee65879852feaaff07d$var$createEvent(state.target, e), state.pointerType);
+        } else if (state.isOverTarget) {
+          triggerPressEnd($ffc54430b1dbeee65879852feaaff07d$var$createEvent(state.target, e), state.pointerType, false);
+        }
+
+        state.isOverTarget = false;
+      };
+
+      pressProps.onTouchStart = e => {
+        e.stopPropagation();
+        let touch = $ffc54430b1dbeee65879852feaaff07d$var$getTouchFromEvent(e.nativeEvent);
+
+        if (!touch) {
+          return;
+        }
+
+        state.activePointerId = touch.identifier;
+        state.ignoreEmulatedMouseEvents = true;
+        state.isOverTarget = true;
+        state.isPressed = true;
+        state.target = e.currentTarget;
+        state.pointerType = 'touch'; // Due to browser inconsistencies, especially on mobile browsers, we prevent default
+        // on the emulated mouse event and handle focusing the pressable element ourselves.
+
+        if (!isDisabled && !preventFocusOnPress) {
+          focusWithoutScrolling(e.currentTarget);
+        }
+
+        $e17c9db826984f8ab8e5d837bf0b8$export$disableTextSelection();
+        triggerPressStart(e, state.pointerType);
+        addGlobalListener(window, 'scroll', onScroll, true);
+      };
+
+      pressProps.onTouchMove = e => {
+        e.stopPropagation();
+
+        if (!state.isPressed) {
+          return;
+        }
+
+        let touch = $ffc54430b1dbeee65879852feaaff07d$var$getTouchById(e.nativeEvent, state.activePointerId);
+
+        if (touch && $ffc54430b1dbeee65879852feaaff07d$var$isOverTarget(touch, e.currentTarget)) {
+          if (!state.isOverTarget) {
+            state.isOverTarget = true;
+            triggerPressStart(e, state.pointerType);
+          }
+        } else if (state.isOverTarget) {
+          state.isOverTarget = false;
+          triggerPressEnd(e, state.pointerType, false);
+        }
+      };
+
+      pressProps.onTouchEnd = e => {
+        e.stopPropagation();
+
+        if (!state.isPressed) {
+          return;
+        }
+
+        let touch = $ffc54430b1dbeee65879852feaaff07d$var$getTouchById(e.nativeEvent, state.activePointerId);
+
+        if (touch && $ffc54430b1dbeee65879852feaaff07d$var$isOverTarget(touch, e.currentTarget)) {
+          triggerPressUp(e, state.pointerType);
+          triggerPressEnd(e, state.pointerType);
+        } else if (state.isOverTarget) {
+          triggerPressEnd(e, state.pointerType, false);
+        }
+
+        state.isPressed = false;
+        state.activePointerId = null;
+        state.isOverTarget = false;
+        state.ignoreEmulatedMouseEvents = true;
+        $e17c9db826984f8ab8e5d837bf0b8$export$restoreTextSelection();
+        removeAllGlobalListeners();
+      };
+
+      pressProps.onTouchCancel = e => {
+        e.stopPropagation();
+
+        if (state.isPressed) {
+          cancel(e);
+        }
+      };
+
+      let onScroll = e => {
+        if (state.isPressed && e.target.contains(state.target)) {
+          cancel({
+            currentTarget: state.target,
+            shiftKey: false,
+            ctrlKey: false,
+            metaKey: false
+          });
+        }
+      };
+
+      pressProps.onDragStart = e => {
+        cancel(e);
+      };
+    }
+
+    return pressProps;
+  }, [addGlobalListener, isDisabled, preventFocusOnPress, removeAllGlobalListeners]); // Remove user-select: none in case component unmounts immediately after pressStart
+  // eslint-disable-next-line arrow-body-style
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    return () => $e17c9db826984f8ab8e5d837bf0b8$export$restoreTextSelection();
+  }, []);
+  return {
+    isPressed: isPressedProp || isPressed,
+    pressProps: mergeProps(domProps, pressProps)
+  };
+}
+
+function $ffc54430b1dbeee65879852feaaff07d$var$isHTMLAnchorLink(target) {
+  return target.tagName === 'A' && target.hasAttribute('href');
+}
+
+function $ffc54430b1dbeee65879852feaaff07d$var$isValidKeyboardEvent(event) {
+  const {
+    key,
+    target
+  } = event;
+  const element = target;
+  const {
+    tagName,
+    isContentEditable
+  } = element;
+  const role = element.getAttribute('role'); // Accessibility for keyboards. Space and Enter only.
+  // "Spacebar" is for IE 11
+
+  return (key === 'Enter' || key === ' ' || key === 'Spacebar') && tagName !== 'INPUT' && tagName !== 'TEXTAREA' && isContentEditable !== true && ( // A link with a valid href should be handled natively,
+  // unless it also has role='button' and was triggered using Space.
+  !$ffc54430b1dbeee65879852feaaff07d$var$isHTMLAnchorLink(element) || role === 'button' && key !== 'Enter') && // An element with role='link' should only trigger with Enter key
+  !(role === 'link' && key !== 'Enter');
+}
+
+function $ffc54430b1dbeee65879852feaaff07d$var$getTouchFromEvent(event) {
+  const {
+    targetTouches
+  } = event;
+
+  if (targetTouches.length > 0) {
+    return targetTouches[0];
+  }
+
+  return null;
+}
+
+function $ffc54430b1dbeee65879852feaaff07d$var$getTouchById(event, pointerId) {
+  const changedTouches = event.changedTouches;
+
+  for (let i = 0; i < changedTouches.length; i++) {
+    const touch = changedTouches[i];
+
+    if (touch.identifier === pointerId) {
+      return touch;
+    }
+  }
+
+  return null;
+}
+
+function $ffc54430b1dbeee65879852feaaff07d$var$createEvent(target, e) {
+  return {
+    currentTarget: target,
+    shiftKey: e.shiftKey,
+    ctrlKey: e.ctrlKey,
+    metaKey: e.metaKey
+  };
+}
+
+function $ffc54430b1dbeee65879852feaaff07d$var$isOverTarget(point, target) {
+  let rect = target.getBoundingClientRect();
+  return (point.clientX || 0) >= (rect.left || 0) && (point.clientX || 0) <= (rect.right || 0) && (point.clientY || 0) >= (rect.top || 0) && (point.clientY || 0) <= (rect.bottom || 0);
+}
+
+function $ffc54430b1dbeee65879852feaaff07d$var$shouldPreventDefault(target) {
+  // We cannot prevent default if the target is inside a draggable element.
+  return !target.closest('[draggable="true"]');
+}
+
+function $ffc54430b1dbeee65879852feaaff07d$var$isVirtualPointerEvent(event) {
+  // If the pointer size is zero, then we assume it's from a screen reader.
+  return event.width === 0 && event.height === 0;
+} // NOTICE file in the root directory of this source tree.
+// See https://github.com/facebook/react/tree/cc7c1aece46a6b69b41958d731e0fd27c94bfc6c/packages/react-interactions
+
+/**
+ * Handles focus events for the immediate target.
+ * Focus events on child elements will be ignored.
+ */
+
+
+function useFocus(props) {
+  if (props.isDisabled) {
+    return {
+      focusProps: {}
+    };
+  }
+
+  let onFocus, onBlur;
+
+  if (props.onFocus || props.onFocusChange) {
+    onFocus = e => {
+      if (e.target === e.currentTarget) {
+        if (props.onFocus) {
+          props.onFocus(e);
+        }
+
+        if (props.onFocusChange) {
+          props.onFocusChange(true);
+        }
+      }
+    };
+  }
+
+  if (props.onBlur || props.onFocusChange) {
+    onBlur = e => {
+      if (e.target === e.currentTarget) {
+        if (props.onBlur) {
+          props.onBlur(e);
+        }
+
+        if (props.onFocusChange) {
+          props.onFocusChange(false);
+        }
+      }
+    };
+  }
+
+  return {
+    focusProps: {
+      onFocus,
+      onBlur
+    }
+  };
+}
+
+let $d01f69bb2ab5f70dfd0005370a2a2cbc$var$changeHandlers = new Set();
+let $d01f69bb2ab5f70dfd0005370a2a2cbc$var$hasSetupGlobalListeners = false;
+let $d01f69bb2ab5f70dfd0005370a2a2cbc$var$hasEventBeforeFocus = false; // Only Tab or Esc keys will make focus visible on text input elements
+
+function $d01f69bb2ab5f70dfd0005370a2a2cbc$var$triggerChangeHandlers(modality, e) {
+  for (let handler of $d01f69bb2ab5f70dfd0005370a2a2cbc$var$changeHandlers) {
+    handler(modality, e);
+  }
+}
+/**
+ * Helper function to determine if a KeyboardEvent is unmodified and could make keyboard focus styles visible.
+ */
+
+
+function $d01f69bb2ab5f70dfd0005370a2a2cbc$var$isValidKey(e) {
+  return !(e.metaKey || !isMac() && e.altKey || e.ctrlKey);
+}
+
+function $d01f69bb2ab5f70dfd0005370a2a2cbc$var$handleKeyboardEvent(e) {
+  $d01f69bb2ab5f70dfd0005370a2a2cbc$var$hasEventBeforeFocus = true;
+
+  if ($d01f69bb2ab5f70dfd0005370a2a2cbc$var$isValidKey(e)) {
+    $d01f69bb2ab5f70dfd0005370a2a2cbc$var$triggerChangeHandlers('keyboard', e);
+  }
+}
+
+function $d01f69bb2ab5f70dfd0005370a2a2cbc$var$handlePointerEvent(e) {
+  if (e.type === 'mousedown' || e.type === 'pointerdown') {
+    $d01f69bb2ab5f70dfd0005370a2a2cbc$var$hasEventBeforeFocus = true;
+    $d01f69bb2ab5f70dfd0005370a2a2cbc$var$triggerChangeHandlers('pointer', e);
+  }
+}
+
+function $d01f69bb2ab5f70dfd0005370a2a2cbc$var$handleClickEvent(e) {
+  if ($f67ef9f1b8ed09b4b00fd0840cd8b94b$export$isVirtualClick(e)) {
+    $d01f69bb2ab5f70dfd0005370a2a2cbc$var$hasEventBeforeFocus = true;
+  }
+}
+
+function $d01f69bb2ab5f70dfd0005370a2a2cbc$var$handleFocusEvent(e) {
+  // Firefox fires two extra focus events when the user first clicks into an iframe:
+  // first on the window, then on the document. We ignore these events so they don't
+  // cause keyboard focus rings to appear.
+  if (e.target === window || e.target === document) {
+    return;
+  } // If a focus event occurs without a preceding keyboard or pointer event, switch to virtual modality.
+  // This occurs, for example, when navigating a form with the next/previous buttons on iOS.
+
+
+  if (!$d01f69bb2ab5f70dfd0005370a2a2cbc$var$hasEventBeforeFocus) {
+    $d01f69bb2ab5f70dfd0005370a2a2cbc$var$triggerChangeHandlers('virtual', e);
+  }
+
+  $d01f69bb2ab5f70dfd0005370a2a2cbc$var$hasEventBeforeFocus = false;
+}
+
+function $d01f69bb2ab5f70dfd0005370a2a2cbc$var$handleWindowBlur() {
+  // When the window is blurred, reset state. This is necessary when tabbing out of the window,
+  // for example, since a subsequent focus event won't be fired.
+  $d01f69bb2ab5f70dfd0005370a2a2cbc$var$hasEventBeforeFocus = false;
+}
+/**
+ * Setup global event listeners to control when keyboard focus style should be visible.
+ */
+
+
+function $d01f69bb2ab5f70dfd0005370a2a2cbc$var$setupGlobalFocusEvents() {
+  if (typeof window === 'undefined' || $d01f69bb2ab5f70dfd0005370a2a2cbc$var$hasSetupGlobalListeners) {
+    return;
+  } // Programmatic focus() calls shouldn't affect the current input modality.
+  // However, we need to detect other cases when a focus event occurs without
+  // a preceding user event (e.g. screen reader focus). Overriding the focus
+  // method on HTMLElement.prototype is a bit hacky, but works.
+
+
+  let focus = HTMLElement.prototype.focus;
+
+  HTMLElement.prototype.focus = function () {
+    $d01f69bb2ab5f70dfd0005370a2a2cbc$var$hasEventBeforeFocus = true;
+    focus.apply(this, arguments);
+  };
+
+  document.addEventListener('keydown', $d01f69bb2ab5f70dfd0005370a2a2cbc$var$handleKeyboardEvent, true);
+  document.addEventListener('keyup', $d01f69bb2ab5f70dfd0005370a2a2cbc$var$handleKeyboardEvent, true);
+  document.addEventListener('click', $d01f69bb2ab5f70dfd0005370a2a2cbc$var$handleClickEvent, true); // Register focus events on the window so they are sure to happen
+  // before React's event listeners (registered on the document).
+
+  window.addEventListener('focus', $d01f69bb2ab5f70dfd0005370a2a2cbc$var$handleFocusEvent, true);
+  window.addEventListener('blur', $d01f69bb2ab5f70dfd0005370a2a2cbc$var$handleWindowBlur, false);
+
+  if (typeof PointerEvent !== 'undefined') {
+    document.addEventListener('pointerdown', $d01f69bb2ab5f70dfd0005370a2a2cbc$var$handlePointerEvent, true);
+    document.addEventListener('pointermove', $d01f69bb2ab5f70dfd0005370a2a2cbc$var$handlePointerEvent, true);
+    document.addEventListener('pointerup', $d01f69bb2ab5f70dfd0005370a2a2cbc$var$handlePointerEvent, true);
+  } else {
+    document.addEventListener('mousedown', $d01f69bb2ab5f70dfd0005370a2a2cbc$var$handlePointerEvent, true);
+    document.addEventListener('mousemove', $d01f69bb2ab5f70dfd0005370a2a2cbc$var$handlePointerEvent, true);
+    document.addEventListener('mouseup', $d01f69bb2ab5f70dfd0005370a2a2cbc$var$handlePointerEvent, true);
+  }
+
+  $d01f69bb2ab5f70dfd0005370a2a2cbc$var$hasSetupGlobalListeners = true;
+}
+
+if (typeof document !== 'undefined') {
+  if (document.readyState !== 'loading') {
+    $d01f69bb2ab5f70dfd0005370a2a2cbc$var$setupGlobalFocusEvents();
+  } else {
+    document.addEventListener('DOMContentLoaded', $d01f69bb2ab5f70dfd0005370a2a2cbc$var$setupGlobalFocusEvents);
+  }
+}
+/**
+ * This function wraps a React event handler to make stopPropagation the default, and support continuePropagation instead.
+ */
+
+
+function $dc0d75166de722fbf58eb6c3552$export$createEventHandler(handler) {
+  if (!handler) {
+    return;
+  }
+
+  let shouldStopPropagation = true;
+  return e => {
+    let event = _extends({}, e, {
+      preventDefault() {
+        e.preventDefault();
+      },
+
+      isDefaultPrevented() {
+        return e.isDefaultPrevented();
+      },
+
+      stopPropagation() {
+        console.error('stopPropagation is now the default behavior for events in React Spectrum. You can use continuePropagation() to revert this behavior.');
+      },
+
+      continuePropagation() {
+        shouldStopPropagation = false;
+      }
+
+    });
+
+    handler(event);
+
+    if (shouldStopPropagation) {
+      e.stopPropagation();
+    }
+  };
+}
+/**
+ * Handles keyboard interactions for a focusable element.
+ */
+
+
+function useKeyboard(props) {
+  return {
+    keyboardProps: props.isDisabled ? {} : {
+      onKeyDown: $dc0d75166de722fbf58eb6c3552$export$createEventHandler(props.onKeyDown),
+      onKeyUp: $dc0d75166de722fbf58eb6c3552$export$createEventHandler(props.onKeyUp)
+    }
+  };
+}
+
+let $e11539c8317b2d21639df611cb5658f$var$FocusableContext = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createContext(null);
+
+function $e11539c8317b2d21639df611cb5658f$var$useFocusableContext(ref) {
+  let context = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)($e11539c8317b2d21639df611cb5658f$var$FocusableContext) || {};
+  useSyncRef(context, ref);
+  return context;
+}
+/**
+ * Used to make an element focusable and capable of auto focus.
+ */
+
+
+function useFocusable(props, domRef) {
+  let {
+    focusProps
+  } = useFocus(props);
+  let {
+    keyboardProps
+  } = useKeyboard(props);
+  let interactions = mergeProps(focusProps, keyboardProps);
+  let domProps = $e11539c8317b2d21639df611cb5658f$var$useFocusableContext(domRef);
+  let interactionProps = props.isDisabled ? {} : domProps;
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (props.autoFocus && domRef.current) {
+      domRef.current.focus();
+    }
+  }, [props.autoFocus, domRef]);
+  return {
+    focusableProps: mergeProps(_extends({}, interactions, {
+      tabIndex: props.excludeFromTabOrder && !props.isDisabled ? -1 : undefined
+    }), interactionProps)
+  };
+}
+/**
+ * Provides the behavior and accessibility implementation for a button component. Handles mouse, keyboard, and touch interactions,
+ * focus behavior, and ARIA props for both native button elements and custom element types.
+ * @param props - Props to be applied to the button.
+ * @param ref - A ref to a DOM element for the button.
+ */
+
+
+function useButton(props, ref) {
+  /* eslint-enable no-redeclare */
+  let {
+    elementType = 'button',
+    isDisabled,
+    onPress,
+    onPressStart,
+    onPressEnd,
+    onPressChange,
+    // @ts-ignore - undocumented
+    preventFocusOnPress,
+    // @ts-ignore
+    onClick: deprecatedOnClick,
+    href,
+    target,
+    rel,
+    type = 'button'
+  } = props;
+  let additionalProps;
+
+  if (elementType === 'button') {
+    additionalProps = {
+      type,
+      disabled: isDisabled
+    };
+  } else {
+    additionalProps = {
+      role: 'button',
+      tabIndex: isDisabled ? undefined : 0,
+      href: elementType === 'a' && isDisabled ? undefined : href,
+      target: elementType === 'a' ? target : undefined,
+      type: elementType === 'input' ? type : undefined,
+      disabled: elementType === 'input' ? isDisabled : undefined,
+      'aria-disabled': !isDisabled || elementType === 'input' ? undefined : isDisabled,
+      rel: elementType === 'a' ? rel : undefined
+    };
+  }
+
+  let {
+    pressProps,
+    isPressed
+  } = usePress({
+    onPressStart,
+    onPressEnd,
+    onPressChange,
+    onPress,
+    isDisabled,
+    preventFocusOnPress,
+    ref
+  });
+  let {
+    focusableProps
+  } = useFocusable(props, ref);
+  let buttonProps = mergeProps(focusableProps, pressProps);
+  buttonProps = mergeProps(buttonProps, filterDOMProps(props, {
+    labelable: true
+  }));
+  return {
+    isPressed,
+    // Used to indicate press state for visual
+    buttonProps: mergeProps(additionalProps, buttonProps, {
+      'aria-haspopup': props['aria-haspopup'],
+      'aria-expanded': props['aria-expanded'],
+      'aria-controls': props['aria-controls'],
+      'aria-pressed': props['aria-pressed'],
+      onClick: e => {
+        if (deprecatedOnClick) {
+          deprecatedOnClick(e);
+          console.warn('onClick is deprecated, please use onPress');
+        }
+      }
+    })
+  };
+}
+
+const RootBoogie$2 = styled('button', {
+  minHeight: '$interactiveElementHeight',
+  minWidth: '$interactiveElementMinWidth',
+  fontSize: '$3',
+  padding: '$4 $5',
+  border: 'solid 2px $darkText',
+  boxShadow: '-2px 3px 1px 0px rgba(0,0,0,1)',
+  transition: 'all 250ms ease',
+  cursor: 'pointer',
+  '&:active': {
+    transform: 'translateY(3px)',
+    boxShadow: '0px 1px 0px 0px rgba(0,0,0,1)'
+  }
+});
+const ButtonVariants = styled(RootBoogie$2, {
+  variants: {
+    color: {
+      primary: {
+        backgroundColor: '$primary100',
+        color: '$darkText',
+        '&:hover': {
+          backgroundColor: '$primary200'
+        },
+        '&:focus': {
+          outline: 'none',
+          boxShadow: '$primaryFocus'
+        }
+      },
+      secondary: {
+        backgroundColor: '$secondary100',
+        color: '$darkText',
+        '&:hover': {
+          backgroundColor: '$secondary200'
+        },
+        '&:focus': {
+          outline: 'none',
+          boxShadow: '$secondaryFocus'
+        }
+      }
+    },
+    cornerRadius: {
+      square: {
+        borderRadius: '$none'
+      },
+      slight: {
+        borderRadius: '$slight'
+      },
+      rounded: {
+        borderRadius: '$rounded'
+      }
+    }
+  }
+});
+/**
+ * A simple, accesible button component.
+ *
+ * @param color - primary | secondary
+ * @param cornerRadius - square | slight | rounded
+ */
+
+const Button = props => {
+  const ref = react__WEBPACK_IMPORTED_MODULE_0__.useRef(null);
+
+  const {
+    buttonProps
+  } = useButton(props, ref);
+  const {
+    children,
+    stylz
+  } = props;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ButtonVariants, {
+    css: { ...stylz
+    },
+    ...buttonProps,
+    ref: ref,
+    ...props
+  }, children);
+};
+/**
+ * Provides the behavior and accessibility implementation for a link component.
+ * A link allows a user to navigate to another page or resource within a web page
+ * or application.
+ */
+
+
+function useLink(props, ref) {
+  let {
+    elementType = 'a',
+    onPress,
+    onPressStart,
+    onPressEnd,
+    // @ts-ignore
+    onClick: deprecatedOnClick,
+    isDisabled
+  } = props,
+      otherProps = _objectWithoutPropertiesLoose(props, ["elementType", "onPress", "onPressStart", "onPressEnd", "onClick", "isDisabled"]);
+
+  let linkProps;
+
+  if (elementType !== 'a') {
+    linkProps = {
+      role: 'link',
+      tabIndex: !isDisabled ? 0 : undefined
+    };
+  }
+
+  let {
+    pressProps,
+    isPressed
+  } = usePress({
+    onPress,
+    onPressStart,
+    onPressEnd,
+    isDisabled,
+    ref
+  });
+  let domProps = filterDOMProps(otherProps, {
+    labelable: true
+  });
+  return {
+    isPressed,
+    // Used to indicate press state for visual
+    linkProps: mergeProps(domProps, _extends({}, pressProps, linkProps, {
+      'aria-disabled': isDisabled || undefined,
+      onClick: e => {
+        pressProps.onClick(e);
+
+        if (deprecatedOnClick) {
+          deprecatedOnClick(e);
+          console.warn('onClick is deprecated, please use onPress');
+        }
+      }
+    }))
+  };
+}
+
+const RootBoogie$1 = styled('a', {
+  textDecoration: 'none',
+  position: 'relative',
+  width: 'fit-content',
+  zIndex: 11,
+  cursor: 'pointer'
+});
+const LinkVariants = styled(RootBoogie$1, {
+  variants: {
+    primary: {
+      true: {
+        '&:hover': {
+          '&::after': {
+            width: '110%',
+            position: 'absolute'
+          }
+        },
+        '&:active': {
+          '&::after': {
+            backgroundColor: '$primary200'
+          }
+        },
+        '&::after': {
+          content: `''`,
+          position: 'absolute',
+          display: 'inline-block',
+          top: '8px',
+          left: '-5px',
+          height: '10px',
+          zIndex: -10,
+          width: 0,
+          backgroundColor: '$primary100',
+          transition: '0.8s ease'
+        },
+        '&:focus': {
+          outline: 'none',
+          '&::after': {
+            content: `''`,
+            position: 'absolute',
+            display: 'inline-block',
+            top: '8px',
+            left: '-5px',
+            height: '10px',
+            zIndex: -10,
+            width: '100%',
+            backgroundColor: '$primary100',
+            transition: '0.8s ease'
+          }
+        }
+      }
+    },
+    secondary: {
+      true: {
+        '&:hover': {
+          '&::after': {
+            width: '110%',
+            position: 'absolute'
+          }
+        },
+        '&:active': {
+          '&::after': {
+            backgroundColor: '$secondary200'
+          }
+        },
+        '&::after': {
+          content: `''`,
+          position: 'absolute',
+          display: 'inline-block',
+          top: '8px',
+          left: '-5px',
+          height: '10px',
+          zIndex: -10,
+          width: 0,
+          backgroundColor: '$secondary100',
+          transition: '0.8s ease'
+        },
+        '&:focus': {
+          outline: 'none',
+          '&::after': {
+            content: `''`,
+            position: 'absolute',
+            display: 'inline-block',
+            top: '8px',
+            left: '-5px',
+            height: '10px',
+            zIndex: -10,
+            width: '100%',
+            backgroundColor: '$secondary100',
+            transition: '0.8s ease'
+          }
+        }
+      }
+    }
+  }
+});
+/**
+ * A simple, accesible button component.
+ * The `href` prop is used to navigate internally or externally.
+ * When used with Nextjs, the `as` prop wont work, instead, wrap this component
+ * with the Nextjs Link conponent.
+ * @param color - primary | secondary
+ */
+
+const Link = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.forwardRef((props, forwardRef) => {
+  const ref = react__WEBPACK_IMPORTED_MODULE_0__.useRef(null);
+
+  const {
+    linkProps
+  } = useLink(props, ref);
+  const {
+    children,
+    href,
+    target,
+    stylz
+  } = props;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(LinkVariants, {
+    css: { ...stylz
+    },
+    ...linkProps,
+    ref: forwardRef,
+    href: href,
+    target: target,
+    ...props
+  }, children);
+}); // auto-fill vs auto-fit https://gridbyexample.com/examples/example37/
+
+
+const RootBoogie = styled('div', {
+  variants: {
+    maxWidth: {
+      500: {
+        maxWidth: '500px'
+      },
+      1000: {
+        maxWidth: '1000px'
+      },
+      1440: {
+        maxWidth: '1440px'
+      }
+    },
+    autoFill300: {
+      true: {
+        display: 'grid',
+        gridAutoRows: 'auto',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(auto, 300px))'
+      }
+    },
+    autoFill350: {
+      true: {
+        display: 'grid',
+        gridAutoRows: 'auto',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(auto, 350px))'
+      }
+    },
+    autoFill400: {
+      true: {
+        display: 'grid',
+        gridAutoRows: 'auto',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(auto, 400px))'
+      }
+    },
+    autoFill450: {
+      true: {
+        display: 'grid',
+        gridAutoRows: 'auto',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(auto, 450px))'
+      }
+    },
+    autoFill500: {
+      true: {
+        display: 'grid',
+        gridAutoRows: 'auto',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(auto, 500px))'
+      }
+    },
+    autoFit300: {
+      true: {
+        display: 'grid',
+        gridAutoRows: 'auto',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(auto, 300px))'
+      }
+    },
+    autoFit350: {
+      true: {
+        display: 'grid',
+        gridAutoRows: 'auto',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(auto, 350px))'
+      }
+    },
+    autoFit400: {
+      true: {
+        display: 'grid',
+        gridAutoRows: 'auto',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(auto, 400px))'
+      }
+    },
+    autoFit450: {
+      true: {
+        display: 'grid',
+        gridAutoRows: 'auto',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(auto, 450px))'
+      }
+    },
+    autoFit500: {
+      true: {
+        display: 'grid',
+        gridAutoRows: 'auto',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(auto, 500px))'
+      }
+    },
+    flex: {
+      row: {
+        display: 'flex',
+        flexDirection: 'row'
+      },
+      column: {
+        display: 'flex',
+        flexDirection: 'column'
+      }
+    },
+    align: {
+      center: {
+        justifyContent: 'center',
+        alignItems: 'center'
+      },
+      even: {
+        justifyContent: 'space-evenly',
+        alignItems: 'center'
+      },
+      around: {
+        justifyContent: 'space-around',
+        alignItems: 'center'
+      },
+      between: {
+        justifyContent: 'space-between',
+        alignItems: 'center'
+      }
+    },
+    primaryBottomRight: {
+      true: {
+        boxShadow: '$primaryBoxBottomRight'
+      }
+    },
+    secondaryBottomRight: {
+      true: {
+        boxShadow: '$secondaryBoxBottomRight'
+      }
+    },
+    primaryBottomLeft: {
+      true: {
+        boxShadow: '$primaryBoxBottomLeft'
+      }
+    },
+    secondaryBottomLeft: {
+      true: {
+        boxShadow: '$secondaryBoxBottomLeft'
+      }
+    },
+    primaryTopRight: {
+      true: {
+        boxShadow: '$primaryBoxTopRight'
+      }
+    },
+    secondaryTopRight: {
+      true: {
+        boxShadow: '$secondaryBoxTopRight'
+      }
+    },
+    primaryTopLeft: {
+      true: {
+        boxShadow: '$primaryBoxTopLeft'
+      }
+    },
+    secondaryTopLeft: {
+      true: {
+        boxShadow: '$secondaryBoxTopLeft'
+      }
+    },
+    border: {
+      true: {
+        border: 'solid 2px $darkText'
+      }
+    }
+  }
+});
+/**
+ * A polymorphic box that can become one of the following HTML elements:
+ * `div` | `section` | `main` | `header` | `nav` | `footer` | `aside` | `article`
+ * @param stylz - Style the container by adding object syntax css. Accepts theme tokens as $myThemeToken
+ * @param flex - Creates a flexbox, decide the direction: `row` | `column`
+ * @param border - Attaches a 2px border
+ * @param maxWidth - Max width of the box. `500` | `1000` | `1440`
+ * @param autoFill300 - Responsive grid (auto-fill), min - auto, max - 300px
+ * @param autoFill350 - Responsive grid (auto-fill), min - auto, max - 350px
+ * @param autoFill400 - Responsive grid (auto-fill), min - auto, max - 400px
+ * @param autoFill450 - Responsive grid (auto-fill), min - auto, max - 450px
+ * @param autoFill500 - Responsive grid (auto-fill), min - auto, max - 500px
+ * @param autoFit300 - Responsive grid (auto-fit), min - auto, max - 300px
+ * @param autoFit350 - Responsive grid (auto-fit), min - auto, max - 350px
+ * @param autoFit400 - Responsive grid (auto-fit), min - auto, max - 400px
+ * @param autoFit450 - Responsive grid (auto-fit), min - auto, max - 450px
+ * @param autoFit500 - Responsive grid (auto-fit), min - auto, max - 500px
+ * @param primaryBottomRight - A box shadow using the primary color on the bottom right
+ * @param primaryBottomLeft - A box shadow using the primary color on the bottom left
+ * @param primaryTopRight - A box shadow using the primary color on the top right
+ * @param primaryTopLeft - A box shadow using the primary color on the top left
+ * @param secondaryTopLeft - A box shadow using the secondary color on the top left
+ * @param secondaryTopRight - A box shadow using the secondary color on the top right
+ * @param secondaryBottomLeft - A box shadow using the secondary color on the bottom left
+ * @param secondaryBottomRight - A box shadow using the secondary color on the bottom right
+ */
+
+const Box = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.forwardRef((props, forwardRef) => {
+  const {
+    stylz
+  } = props;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(RootBoogie, {
+    css: { ...stylz
+    },
+    ...props,
+    ref: forwardRef
+  });
+});
+
+const BoogieBase = styled('p', {
+  fontFamily: '$body',
+  variants: {
+    size: {
+      xs: {
+        fontSize: '$xs'
+      },
+      s: {
+        fontSize: '$s'
+      },
+      m: {
+        fontSize: '$m'
+      },
+      l: {
+        fontSize: '$l'
+      },
+      xl: {
+        fontSize: '$xl'
+      },
+      xxl: {
+        fontSize: '$xxl'
+      },
+      huge: {
+        fontSize: '$huge'
+      },
+      jumbo: {
+        fontSize: '$jumbo'
+      }
+    }
+  }
+});
+/**
+ * A polymorphic typography component that can become one of the following HTML elements:
+ * 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'blockquote' | 'dd' | 'li' | 'abbr' | 'cite' | 'q' | 's'
+ * @param stylz - Style the element by adding object syntax css. Accepts theme tokens as $myThemeToken
+ * @param xs - Extra small font size
+ * @param s - Small font size
+ * @param m - Medium font size
+ * @param l - Large font size
+ * @param xl - Extra large font size
+ * @param xxl - Double extra large font size
+ * @param huge - Huge large font size
+ * @param jumbo - Jumbo large font size
+ */
+
+const Typography = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.forwardRef((props, forwardRef) => {
+  const {
+    stylz
+  } = props;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(BoogieBase, {
+    css: { ...stylz
+    },
+    ...props,
+    ref: forwardRef
+  });
+});
+/**
+ * Set your font globally with a self hosted font-face.
+ * @param fontFamily - The font family. For example: CustomFont1
+ * @param src - The path to the self hosted font. For example: local("CustomFont1"), url("CustomFont1.woff2")
+ */
+
+
+const fontFace = (fontFamily, src) => D({
+  '@font-face': {
+    fontFamily,
+    src
+  }
+});
+/**
+* Set your font globally with a self hosted font-face. This function sets multiple fonts
+* @param fontFaces - An array of font family values.
+* The config requires an object array where each object is:
+* @example
+*  {
+    fontFamily: 'CustomFont1',
+    src: 'local("CustomFont1"), url("CustomFont1.woff2")',
+  },
+  {
+    fontFamily: 'CustomFont2',
+    src: 'local("CustomFont2"), url("CustomFont2.woff2")',
+  },
+*/
+
+
+const multiFontFace = fontFaces => D({
+  '@font-face': [...fontFaces]
+});
+/**
+* A global css reset. Call function at the root level of your app.
+*/
+
+
+const resetCSS = D({
+  '*': {
+    verticalAlign: 'baseline',
+    fontWeight: 'inherit',
+    fontFamily: 'inherit',
+    fontStyle: 'inherit',
+    fontSize: '100%',
+    border: '0 none',
+    outline: 0,
+    padding: 0,
+    margin: 0
+  }
+});
+
 
 /***/ }),
 

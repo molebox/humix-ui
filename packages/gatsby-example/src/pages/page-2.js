@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link as GatsbyLink } from 'gatsby'
 import { Box, Button, Link } from 'humix-ui'
 
 const Page2 = () => {

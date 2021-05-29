@@ -2,10 +2,10 @@ import * as React from 'react';
 import { StitchesVariants } from '@stitches/react';
 import { styled } from '../../../stitches.config';
 import { useLink } from '@react-aria/link';
-import type * as Polymorphic from '@radix-ui/react-polymorphic';
+// import type * as Polymorphic from '@radix-ui/react-polymorphic';
 import { HumixBase } from '../../utils';
 
-const DEFAULT_ELEMENT = 'a';
+// const DEFAULT_ELEMENT = 'a';
 
 const RootBoogie = styled('a', {
   textDecoration: 'none',
@@ -104,13 +104,13 @@ const LinkVariants = styled(RootBoogie, {
   },
 });
 
-export type LinkProps = HumixBase & React.AnchorHTMLAttributes<HTMLAnchorElement> &
+type LinkProps = HumixBase & React.AnchorHTMLAttributes<HTMLAnchorElement> &
   StitchesVariants<typeof LinkVariants>;
 
-type LinkComponent = Polymorphic.ForwardRefComponent<
-  Polymorphic.IntrinsicElement<typeof LinkVariants>,
-  Polymorphic.OwnProps<typeof LinkVariants>
->;
+// type LinkComponent = Polymorphic.ForwardRefComponent<
+//   Polymorphic.IntrinsicElement<typeof LinkVariants>,
+//   Polymorphic.OwnProps<typeof LinkVariants>
+// >;
 
 /**
  * A simple, accesible button component.
@@ -119,7 +119,7 @@ type LinkComponent = Polymorphic.ForwardRefComponent<
  * with the Nextjs Link conponent.
  * @param color - primary | secondary
  */
-export const Link = React.forwardRef((props: LinkProps, forwardRef) => {
+export const Link: React.FC<LinkProps> = (props) => {
   const ref = React.useRef<HTMLAnchorElement>(null);
   const { linkProps } = useLink(props, ref);
   const { children, href, target, stylz } = props;
@@ -127,7 +127,7 @@ export const Link = React.forwardRef((props: LinkProps, forwardRef) => {
     <LinkVariants
       css={{ ...stylz }}
       {...linkProps}
-      ref={forwardRef}
+      ref={ref}
       href={href}
       target={target}
       {...props}
@@ -135,4 +135,4 @@ export const Link = React.forwardRef((props: LinkProps, forwardRef) => {
       {children}
     </LinkVariants>
   );
-}) as LinkComponent;
+}
