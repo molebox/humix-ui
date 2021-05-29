@@ -1,10 +1,65 @@
-import { createCss, StitchesCss } from '@stitches/react';
+import { createCss, StitchesCss, global } from '@stitches/react';
 
+/**
+ * Set your font globally with a self hosted font-face.
+ * @param fontFamily - The font family. For example: CustomFont1
+ * @param src - The path to the self hosted font. For example: local("CustomFont1"), url("CustomFont1.woff2")
+ */
+export const fontFace = (fontFamily: string, src: string) => global({
+    '@font-face': {
+        fontFamily,
+        src,
+    },
+})
+
+type FontFace = {
+    fontFamily: string;
+    src: string;
+}
+
+/**
+ * Set your font globally with a self hosted font-face. This function sets multiple fonts
+ * @param fontFaces - An array of font family values.
+ * The config requires an object array where each object is:
+ * @example
+ *  {
+      fontFamily: 'CustomFont1',
+      src: 'local("CustomFont1"), url("CustomFont1.woff2")',
+    },
+    {
+      fontFamily: 'CustomFont2',
+      src: 'local("CustomFont2"), url("CustomFont2.woff2")',
+    },
+ */
+export const multiFontFace = (fontFaces: FontFace[]) => global({
+    '@font-face': [...fontFaces],
+})
+
+/**
+ * A global css reset. Call function at the root level of your app.
+ */
+export const resetCSS = global({
+    '*': {
+        verticalAlign: 'baseline',
+        fontWeight: 'inherit',
+        fontFamily: 'inherit',
+        fontStyle: 'inherit',
+        fontSize: '100%',
+        border: '0 none',
+        outline: 0,
+        padding: 0,
+        margin: 0
+    }
+})
+
+/**
+ * The default humix theme
+ */
 export const defaultTheme = createCss({
     prefix: 'humix-',
     theme: {
         fonts: {
-            openSans: 'Open Sans',
+            body: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol',
         },
         colors: {
             primary100: 'hsl(170, 86%, 62%)',
@@ -78,7 +133,12 @@ export const defaultTheme = createCss({
             primaryBoxTopLeft: '-10px -10px 1px 1px hsl(170, 86%, 62%)',
             secondaryBoxTopLeft: '-10px -10px 1px 1px hsl(359, 93%, 52%)',
         },
-        zIndices: {},
+        zIndices: {
+            neutral: 0,
+            above: 100,
+            below: -100,
+            onTop: 999999999
+        },
         transitions: {},
     },
     media: {
@@ -88,10 +148,16 @@ export const defaultTheme = createCss({
     },
 });
 
-export const { styled, getCssString, css, theme, media } = defaultTheme;
+export const { styled, getCssString, css, theme } = defaultTheme;
 
+/**
+ * The CSS types that map to the theme. Used for the `stylz` css override
+ */
 export type CSS = StitchesCss<typeof defaultTheme>;
 
+/**
+ * An example custom theme with pastel colors.
+ */
 export const pastelTheme = theme({
     colors: {
         primary100: 'hsl(110, 100%, 87%)',

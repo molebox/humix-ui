@@ -5,41 +5,41 @@ import type * as Polymorphic from '@radix-ui/react-polymorphic';
 import { HumixBase } from '../utils';
 
 const BoogieBase = styled('p', {
-  fontFamily: '$openSans',
-    variants: {
-      size: {
-          xs: {
-            fontSize: '$xs'
-          },
-          s: {
-            fontSize: '$s'
-          },
-          m: {
-            fontSize: '$m'
-          },
-          l: {
-            fontSize: '$l'
-          },
-          xl: {
-            fontSize: '$xl'
-          },
-          xxl: {
-            fontSize: '$xxl'
-          },
-          huge: {
-            fontSize: '$huge'
-          },
-          jumbo: {
-            fontSize: '$jumbo'
-          },
-      }
+  fontFamily: '$body',
+  variants: {
+    size: {
+      xs: {
+        fontSize: '$xs'
+      },
+      s: {
+        fontSize: '$s'
+      },
+      m: {
+        fontSize: '$m'
+      },
+      l: {
+        fontSize: '$l'
+      },
+      xl: {
+        fontSize: '$xl'
+      },
+      xxl: {
+        fontSize: '$xxl'
+      },
+      huge: {
+        fontSize: '$huge'
+      },
+      jumbo: {
+        fontSize: '$jumbo'
+      },
     }
+  }
 })
 
 interface RestrictedProps extends React.ComponentProps<typeof BoogieBase> {
-    as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'blockquote' | 'dd' | 'li' | 'abbr' | 'cite' | 'q' | 's'
-  }
-  
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'blockquote' | 'dd' | 'li' | 'abbr' | 'cite' | 'q' | 's'
+}
+
 type TypographyProps = RestrictedProps & HumixBase & Required<StitchesVariants<typeof BoogieBase>>;
 
 type TypographyComponent = Polymorphic.ForwardRefComponent<
@@ -60,7 +60,7 @@ type TypographyComponent = Polymorphic.ForwardRefComponent<
  * @param huge - Huge large font size
  * @param jumbo - Jumbo large font size
  */
- export const Typography = React.forwardRef((props, forwardRef) => {
+export const Typography = React.forwardRef((props, forwardRef) => {
   const { stylz } = props;
   return <BoogieBase css={{ ...stylz }} {...props} ref={forwardRef} />;
 }) as TypographyComponent;

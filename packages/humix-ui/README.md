@@ -81,6 +81,73 @@ Current theme list:
 - default
 - pastelTheme
 
+### Utilities
+
+Humix ships with some handy utility functions:
+
+- [A global CSS reset](#resetcss)
+- [Font face](#fontface)
+- [Multiple font faces](#multifontface)
+
+#### `resetCSS`
+
+Call this function at the root level of your app. It's a sane, default CSS reset:
+
+```tsx
+import { resetCSS } from 'humix-ui'
+
+const Root = () => {
+  resetCSS()
+
+  return (
+    <div>Sup?</div>
+  )
+}
+```
+
+#### FontFace
+
+Set your font globally with a self hosted font-face.
+
+```tsx
+import { fontFace } from 'humix-ui'
+
+const Root = () => {
+  fontFace('Open Sans', pathToFont)
+
+  return (
+    <div>Sup?</div>
+  )
+}
+```
+
+#### MultiFontFace
+
+Set multiple fonts globally with a self hosted font-faces.
+
+```tsx
+import { multiFontFace } from 'humix-ui'
+
+const Root = () => {
+    const myFonts = [
+    {
+      fontFamily: 'CustomFont1',
+      src: 'local("CustomFont1"), url("CustomFont1.woff2")',
+    },
+    {
+      fontFamily: 'CustomFont2',
+      src: 'local("CustomFont2"), url("CustomFont2.woff2")',
+    },
+  ],
+
+  multiFontFace(myFonts)
+
+  return (
+    <div>Sup?</div>
+  )
+}
+```
+
 ### Button
 
 A super duper simple, accessible button component.
