@@ -5,12 +5,6 @@ export type HumixBase = {
   stylz?: CSS;
 };
 
-export const openSans = `url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap'`
-
-export const atImportFont = (rule: string) => global({
-  '@import': rule,
-});
-
 /**
  * Set your font globally with a self hosted font-face.
  * @param fontFamily - The font family. For example: CustomFont1

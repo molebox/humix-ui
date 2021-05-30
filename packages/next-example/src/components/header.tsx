@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Button, Link, Typography } from 'humix-ui'
+import { Box, Link, Typography } from 'humix-ui'
 import NextLink from 'next/link'
 
 export default function Header() {
@@ -9,6 +9,8 @@ export default function Header() {
             as='header'
             flex='row'
             align='between'
+            width='full'
+            px='16'
         >
             <Typography size='l'>
                 Humix-ui
@@ -16,6 +18,7 @@ export default function Header() {
             <Box
                 flex='row'
                 align='even'
+                width='quarter'
             >
                 <NextLink href='/page-2'>
                     <Link primary>
